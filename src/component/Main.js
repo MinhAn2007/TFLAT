@@ -94,7 +94,7 @@ const Main = () => {
     },
   ];
 
-  // Xử lý dữ liệu để tạo hàng riêng biệt cho các mục có id 2 và 3
+  // Xử lý dữ liệu để tạo hàng riêng biệt cho các mục có id 2 và 3Te
   const processedItems = [];
   let currentRow = [];
   items.forEach((item) => {
