@@ -13,8 +13,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
+  const  navigate = useNavigation();
   const items = [
     {
       id: 1,
@@ -41,6 +43,9 @@ const Main = () => {
       id: 4,
       text: "Tài khoản",
       image: require("/assets/user.png"),
+      handle: () => {
+        navigate.navigate("Login");
+      },
     },
     {
       id: 5,
@@ -94,7 +99,6 @@ const Main = () => {
     },
   ];
 
-  // Xử lý dữ liệu để tạo hàng riêng biệt cho các mục có id 2 và 3Te
   const processedItems = [];
   let currentRow = [];
   items.forEach((item) => {
