@@ -200,7 +200,7 @@ const Main = () => {
           TFlat
         </Text>
         <Pressable onPress={()=>{
-          navigate.navigate("DangKyVIP");
+          navigate.navigate("DangKyVipScreen");
         }}><Image
           style={{ width: 30, height: 30, marginLeft:320, marginTop: -25 }}
           source={require("/assets/mdi_cart.png")}

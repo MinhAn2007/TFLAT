@@ -6,6 +6,7 @@ import Main from "../component/Main";
 import Login from "../component/Login";
 import HienThiManHinhKhoa from "../component/HienThiTrenManHinhKhoa";
 import TuVungVIPLuyenThi from "../component/TuVungVIPLuyenThi";
+import DangKyVipScreen from "../component/DangKyVipScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,11 @@ const Navigator = () => {
         <Stack.Screen
           name="Main"
           component={Main}
+          options={{ headerShown: false }}
+        />
+            <Stack.Screen
+          name="DangKyVipScreen"
+          component={DangKyVipScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
