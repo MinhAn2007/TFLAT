@@ -7,6 +7,7 @@ import Login from "../component/Login";
 import HienThiManHinhKhoa from "../component/HienThiTrenManHinhKhoa";
 import TuVungVIPLuyenThi from "../component/TuVungVIPLuyenThi";
 import DangKyVipScreen from "../component/DangKyVipScreen";
+import TuDaTraScreen from "../component/TuDaTraScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,9 +20,15 @@ const Navigator = () => {
           component={Main}
           options={{ headerShown: false }}
         />
-            <Stack.Screen
+        <Stack.Screen
           name="DangKyVipScreen"
           component={DangKyVipScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="TuDaTraScreen"
+          component={TuDaTraScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -58,7 +65,7 @@ const Navigator = () => {
             },
           }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="TuVungVIPLuyenThi"
           component={TuVungVIPLuyenThi}
           options={{
@@ -72,8 +79,8 @@ const Navigator = () => {
                 source={require('/assets/headerScreen.jpg')}
               />
             ),
-          }}  
-            />
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

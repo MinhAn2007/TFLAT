@@ -1,0 +1,249 @@
+{
+    "dataDangKyVip": [
+        {
+            "id": 1,
+            "title": "Thành viên VIP mãi mãi",
+            "price": 295.000,
+            "cycle": "Thanh toán một lần dùng mãi mãi"
+        },
+        {
+            "id": 2,
+            "title": "3 Tháng",
+            "price": 65.000,
+            "cycle": "Thanh toán hằng quý"
+        },
+        {
+            "id": 3,
+            "title": "1 Năm",
+            "price": 195.000,
+            "cycle": "Thanh toán hằng năm"
+        }
+    ],
+    "dataTuDaTra": [
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 1
+        },
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "tôn trọng, tuân theo",
+            "note": false,
+            "id": 2
+        },
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 3
+        },
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 4
+        },
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "tôn trọng, tuân theo",
+            "note": false,
+            "id": 5
+        },
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 6
+        },
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 7
+        },
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 8
+        },
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "tôn trọng, tuân theo",
+            "note": false,
+            "id": 9
+        },
+        {
+            "title": "speak",
+            "phonetically": "[‘spi:kə(r)]",
+            "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng, người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng, người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+            "note": false,
+            "id": 10
+        }
+    ],
+    "dataDongTuBatQuyTac": [
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "lưu trú, lưu lại",
+            "P": "abided / abode",
+            "PP": "abided",
+            "note": false,
+            "id": 1
+        },
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "lưu trú, lưu lại",
+            "P": "abided / abode",
+            "PP": "abided / alit / alighted",
+            "note": false,
+            "id": 2
+        },
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "lưu trú, lưu lại",
+            "P": "abided / abode",
+            "PP": "abided",
+            "note": false,
+            "id": 3
+        },
+        {
+            "title": "abide",
+            "phonetically": "[ə‘baId]",
+            "translate": "lưu trú, lưu lại",
+            "P": "abided / abode",
+            "PP": "abided",
+            "note": false,
+            "id": 4
+        }
+    ],
+    "dataTuDienVietAnh": [
+        {
+            "title": "Chính xác",
+            "id": 1
+        },
+        {
+            "title": "Ngon miệng",
+            "id": 2
+        },
+        {
+            "title": "Trong lành",
+            "id": 3
+        },
+        {
+            "title": "Dự báo",
+            "id": 4
+        },
+        {
+            "title": "Mùa màng",
+            "id": 5
+        },
+        {
+            "title": "Món ăn",
+            "id": 6
+        },
+        {
+            "title": "Hiện đại",
+            "id": 7
+        }
+    ],
+    "dataUngDungHocTiengAnhKhac": [
+        {
+            "title": "Học tiếng Anh hằng ngày",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh1_x3pep4.jpg",
+            "content": [
+                {
+                    "content1": "Ghi lại giọng nói và kiểm tra xem nó có đúng hay không.",
+                    "content2": "Chơi trò chơi từ vựng",
+                    "content3": "Học bằng nhiều video hữu ích"
+                }
+            ],
+            "id": 1
+        },
+        {
+            "title": "Học ngữ pháp tiếng Anh ",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh2_iygymi.jpg",
+            "content": [
+                {
+                    "content1": "Chủ đề đa dạng, dùng offline",
+                    "content2": "Nhiều bài tập trắc nghiệm, cho phép tra từ điển TFlat trong app.",
+                    "content3": "Nhiều danh ngôn, thành ngữ, truyện cười khác"
+                }
+            ],
+            "id": 2
+        },
+        {
+            "title": "Bài giải hay SGK, Sách bài tập",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh3_cronyv.jpg",
+            "content": [
+                {
+                    "content1": "Không cần mua sách giải, sách bài tập, sách giáo khoa nữa. Đã có app SGK cho phép bạn tra bài học, bài giải một cách nhanh chóng.",
+                    "content2": "Không cần mạng Internet, bạn có thể tra mọi bài giải mọi lúc mọi nơi."
+                }
+            ],
+            "id": 3
+        },
+        {
+            "title": "Học tiếng Anh với BiBo",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh4_gozbmi.jpg",
+            "content": [
+                {
+                    "content1": ""
+                }
+            ],
+            "id": 4
+        },
+        {
+            "title": "Luyện thi TOEIC",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh5_c0pslb.jpg",
+            "content": [
+                {
+                    "content1": ""
+                }
+            ],
+            "id": 5
+        },
+        {
+            "title": "Học Phát âm Tiếng Anh",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491867/TFlat/anh6_jtbvry.jpg",
+            "content": [
+                {
+                    "content1": ""
+                }
+            ],
+            "id": 6
+        },
+        {
+            "title": "Game luyện từ vựng TOEIC",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh7_sbcsd7.jpg",
+            "content": [
+                {
+                    "content1": ""
+                }
+            ],
+            "id": 7
+        },
+        {
+            "title": "Học từ vựng Tiếng Anh",
+            "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh8_jvz3mn.jpg",
+            "content": [
+                {
+                    "content1": ""
+                }
+            ],
+            "id": 8
+        }
+    ]
+}

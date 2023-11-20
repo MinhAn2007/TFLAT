@@ -16,14 +16,14 @@ import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
-  const  navigate = useNavigation();
+  const navigate = useNavigation();
   const items = [
     {
       id: 1,
       text: "Hiển thị từ vựng trên màn hình khoá",
       image: require("/assets/lock.png"),
       handle: () => {
-          navigate.navigate("HienThiManHinhKhoa");
+        navigate.navigate("HienThiManHinhKhoa");
       },
     },
     {
@@ -68,7 +68,7 @@ const Main = () => {
       image: require("/assets/bag.png"),
       handle: () => {
         navigate.navigate("TuVungVIPLuyenThi");
-    },
+      },
     },
     {
       id: 8,
@@ -132,10 +132,10 @@ const Main = () => {
             subItem.id === 4
               ? styles.shortRow
               : subItem.id === 3
-              ? styles.shortRow1
-              : subItem.id === 11
-              ? styles.row2
-              : null,
+                ? styles.shortRow1
+                : subItem.id === 11
+                  ? styles.row2
+                  : null,
           ]}
           onPress={subItem.handle}
         >
@@ -199,12 +199,12 @@ const Main = () => {
         >
           TFlat
         </Text>
-        <Pressable onPress={()=>{
+        <Pressable onPress={() => {
           navigate.navigate("DangKyVipScreen");
         }}><Image
-          style={{ width: 30, height: 30, marginLeft:320, marginTop: -25 }}
-          source={require("/assets/mdi_cart.png")}
-        /></Pressable> 
+            style={{ width: 30, height: 30, marginLeft: 320, marginTop: -25 }}
+            source={require("/assets/mdi_cart.png")}
+          /></Pressable>
         <TextInput
           style={styles.search}
           placeholder="Tra từ điển Anh Việt - Việt Anh"
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     height: 180,
     alignItems: "flex-start",
     paddingVertical: 15,
-    
+
   },
   itemText: {
     fontFamily: "Roboto",

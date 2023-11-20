@@ -56,10 +56,9 @@ export default function DangKyVipScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         backgroundColor: '#EEEEEE',
     },
-
+ 
     head: {
         width: '100%',
         height: 60,
