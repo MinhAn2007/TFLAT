@@ -95,13 +95,8 @@ const Navigator = () => {
         <Stack.Screen
           name="TransScreen"
           component={TransScreen}
-          options={{
-            headerShown: true,
-            title: "Đăng nhập",
-            headerTitleAlign: "center",
-            headerStyle: { backgroundColor: "#0052B4" },
-            headerTintColor: "white",
-          }}
+          options={{ headerShown: false }}
+
         />
         <Stack.Screen
           name="HienThiManHinhKhoa"

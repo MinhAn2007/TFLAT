@@ -11,6 +11,7 @@
   "dependencies": {
     "@arelstone/react-native-swipe-button": "^0.3.0",
     "@expo/webpack-config": "^19.0.0",
+    "@react-navigation/material-top-tabs": "^6.6.5",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "expo": "~49.0.13",
