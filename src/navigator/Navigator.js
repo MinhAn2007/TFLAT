@@ -114,7 +114,6 @@ const Navigator = () => {
             ),
           }}
         />
-        
       </Stack.Navigator>
     </NavigationContainer>
   );

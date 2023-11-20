@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function DangKyVipScreen() {
+    const navigation = useNavigation();
     var [data, setData] = useState([]);
 
     useEffect(() => {
@@ -21,7 +23,9 @@ export default function DangKyVipScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} />
+                <Pressable onPress={() => navigation.goBack()}>
+                    <Ionicons name="arrow-back" size={30} color="white" style={{ left: 20 }} />
+                    </Pressable>
                 <Text style={{ fontSize: 20, color: 'white', left: 75 }}>Đăng ký thành viên VIP</Text>
             </View>
 
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
     head: {
         width: '100%',
         height: 60,
-        backgroundColor: 'red',
+        backgroundColor: '#0052B4',
         alignItems: 'center',
         flexDirection: 'row',
         marginBottom: 20

@@ -31,7 +31,7 @@ const Main = () => {
       text: "Từ đã tra",
       image: require("/assets/history.png"),
       handle: () => {
-        console.log("Bấm vào mục 2");
+        navigate.navigate("TuDaTraScreen");
       },
     },
     {
@@ -74,7 +74,9 @@ const Main = () => {
       id: 8,
       text: "Từ vựng VIP SGK",
       image: require("/assets/bag.png"),
-
+      handle: () => {
+        navigate.navigate("TuVungSGK");
+      },
     },
     {
       id: 9,
