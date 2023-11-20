@@ -111,7 +111,6 @@ const data =[
       style={styles.background}
     >
       <View style={styles.container}>
-      
         <View style={styles.separator}></View>
       </View>     
        <View style={{marginHorizontal:15}}><Text style={{marginTop:30,fontWeight:'200',textAlign:'left',fontSize:18,justifyContent:'center',color:'white',marginBottom:25}}>Các gói từ vựng VIP được chọn lọc và biên soạn cần thận theo từng chủ đề, nội dung sẽ chất lượng hơn hẳn so với các danh sách từ vựng ở mục [Từ vựng quan trọng].</Text>
