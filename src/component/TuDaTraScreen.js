@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
 export default function TuDaTraScreen() {
     const navigation = useNavigation();
     var [data, setData] = useState([]);
     const [isSelected, setSelection] = useState(false);
+
+    var [star, setStar] = useState(false)
+
+    var [title, setTitle] = useState("")
+    var [phonetically, setPhonetically] = useState("")
+    var [translate, setTranslate] = useState("")
 
     useEffect(() => {
         getAPIDangKyVip()
@@ -22,10 +29,56 @@ export default function TuDaTraScreen() {
             });
     }
 
+    const saveAPITuDaTra = async (data) => {
+
+        const url = "http://localhost:3000/dataTuCuaBan1";
+        let result = await fetch(url, {
+            method: "POST",
+            headers: { 'Accept': 'application/json, text/plain, */*', "Content-Type": "application/json" },
+            body: JSON.stringify({ title: data.title, phonetically: data.phonetically, translate: data.translate })
+        });
+        result = await result.json();
+        if (result) {
+            getAPIDangKyVip()
+            alert("sucess" + data.title + data.phonetically)
+        } else {
+            alert("Error");
+        }
+    }
+
+    const patchAPITuDaTra = async (data) => {
+
+        const url = "http://localhost:3000/dataTuDaTra";
+        let result = await fetch(`${url}/${data}`, {
+                method: 'PATCH',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ note: star })
+            });
+        result = await result.json();
+        if (result) {
+            getAPIDangKyVip()
+        } else {
+            alert("Error");
+        }
+    }
+
+    const deleteAPITuDaTra = async (id) => {
+        const url = "http://localhost:3000/dataTuCuaBan1/" + id;
+        let result = await fetch(url, {
+            method: "DELETE",
+        });
+        result = await result.json();
+        if (result) {
+            alert("Data delete success");
+        } else {
+            alert("Error");
+        }
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-                <Pressable onPress={() => navigation.goBack()}>
+            <Pressable onPress={() => navigation.goBack()}>
                 <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                 <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Từ đã tra ({data.length})</Text>
             </View>
@@ -52,16 +105,34 @@ export default function TuDaTraScreen() {
                                 style={{ width: 28, height: 28, left: 10, top: 10 }}
                             />
 
-                            <View style={{ width: '60%', height:'100%', flexDirection: 'column', marginLeft: 20, paddingTop: 10, alignSelf: 'flex-start' }}>
+                            <View style={{ width: '60%', height: '100%', flexDirection: 'column', marginLeft: 20, paddingTop: 10, alignSelf: 'flex-start' }}>
                                 <Text style={{ fontSize: 16, fontWeight: 700 }}>{item.title}</Text>
                                 <Text style={{ fontSize: 16, fontWeight: 200 }}>{item.phonetically}</Text>
                                 <Text style={{ fontSize: 14, fontWeight: 400, textAlign: 'justify' }}>{item.translate}</Text>
                             </View>
 
-                            <View style={{flexDirection:'row', alignItems:'center', top: 10}}>
-                            <FontAwesome name="circle" size={35} style={{color:'#3B8CEC', left: 10}} />
-                            <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
-                            <Ionicons name="star-outline" size={30} />
+                            <View style={{ flexDirection: 'row', alignItems: 'center', top: 10 }}>
+                                <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
+                                <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
+
+                                <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}
+                                    onPress={() => {
+                                        setStar(true)
+                                        patchAPITuDaTra(item.id)
+
+                                        saveAPITuDaTra(item)
+
+                                    }}
+                                />
+
+                                <AntDesign name="star" size={30} style={{ ...item.note ? styles.buttonPress2 : styles.buttonPress }}
+                                    onPress={() => {
+                                        setStar(false)
+                                        patchAPITuDaTra(item.id)
+
+                                        //deleteAPITuDaTra(item.id)
+                                    }}
+                                />
                             </View>
                         </View>
 
@@ -96,6 +167,7 @@ export default function TuDaTraScreen() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: '#EEEEEE',
     },
 
@@ -162,6 +234,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-    }
+    },
+
+    button: {
+        color: "black"
+    },
+
+    buttonPress: {
+        display: 'none'
+    },
+
+    buttonPress2: {
+        color: "yellow"
+    },
 
 });
