@@ -74,11 +74,15 @@ const Main = () => {
       id: 8,
       text: "Từ vựng VIP SGK",
       image: require("/assets/bag.png"),
+      handle: () => {
+        navigate.navigate("TuVungSGK");
+      },
     },
     {
       id: 9,
       text: "Từ vựng VIP SGK mới",
       image: require("/assets/bag.png"),
+     
     },
     {
       id: 10,
