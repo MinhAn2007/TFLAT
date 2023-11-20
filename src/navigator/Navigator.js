@@ -9,6 +9,7 @@ import TuVungVIPLuyenThi from "../component/TuVungVIPLuyenThi";
 import DangKyVipScreen from "../component/DangKyVipScreen";
 import TuDaTraScreen from "../component/TuDaTraScreen";
 import TuVungSGK from "../component/TuVungSGK";
+import TuVungSGKmoi from "../component/TuVungSGKmoi";
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -97,6 +98,23 @@ const Navigator = () => {
             ),
           }}
         />
+         <Stack.Screen
+          name="TuVungSGKmoi"
+          component={TuVungSGKmoi}
+          options={{
+            headerShown: true,
+            title: "Từ vựng VIP SGK mới",
+            headerTitleAlign: "center",
+            headerTintColor: "white",
+            headerBackground: () => (
+              <Image
+                style={{ flex: 1, resizeMode: 'cover', width: '100%' }}
+                source={require('/assets/headerScreen.jpg')}
+              />
+            ),
+          }}
+        />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
