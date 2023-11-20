@@ -66,6 +66,9 @@ const Main = () => {
       id: 7,
       text: "Từ vựng VIP luyện thi",
       image: require("/assets/bag.png"),
+      handle: () => {
+        navigate.navigate("TuVungVIPLuyenThi");
+    },
     },
     {
       id: 8,
