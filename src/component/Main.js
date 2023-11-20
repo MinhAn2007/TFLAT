@@ -196,10 +196,12 @@ const Main = () => {
         >
           TFlat
         </Text>
-        <Image
-          style={{ width: 30, height: 30, marginLeft: "80%", marginTop: "-7%" }}
+        <Pressable onPress={()=>{
+          navigate.navigate("DangKyVIP");
+        }}><Image
+          style={{ width: 30, height: 30, marginLeft:320, marginTop: -25 }}
           source={require("/assets/mdi_cart.png")}
-        />
+        /></Pressable> 
         <TextInput
           style={styles.search}
           placeholder="Tra từ điển Anh Việt - Việt Anh"
