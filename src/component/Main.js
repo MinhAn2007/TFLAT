@@ -43,6 +43,10 @@ const Main = () => {
       id: 3,
       text: "Từ của bạn",
       image: require("/assets/star.png"),
+      
+      handle: () => {
+        navigate.navigate("TuCuaBanScreen");
+      },
     },
     {
       id: 4,

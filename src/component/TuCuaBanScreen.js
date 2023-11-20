@@ -3,8 +3,10 @@ import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollVi
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
 
 export default function TuCuaBanScreen() {
+    const navigation = useNavigation();
     var [data, setData] = useState([]);
     const [isSelected, setSelection] = useState(false);
 
@@ -37,7 +39,8 @@ export default function TuCuaBanScreen() {
         <View style={styles.container}>
             <View style={styles.head}>
                 <View style={styles.head1}>
-                    <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} />
+                    <Pressable onPress={() => navigation.goBack()}>
+                    <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                     <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Từ của bạn ({data.length})</Text>
                     <FontAwesome name="folder-open" size={25} style={{ color: 'white', left: 130 }} />
                     <Ionicons name="reorder-three-outline" size={35} style={{ color: 'white', left: 150 }} />
