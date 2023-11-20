@@ -23,7 +23,7 @@ const Main = () => {
       text: "Hiển thị từ vựng trên màn hình khoá",
       image: require("/assets/lock.png"),
       handle: () => {
-        console.log("Bấm vào mục 1");
+          navigate.navigate("HienThiManHinhKhoa");
       },
     },
     {
