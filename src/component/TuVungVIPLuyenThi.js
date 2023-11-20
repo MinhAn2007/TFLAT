@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet,FlatList,Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Thay đổi tên icon tùy thuộc vào thư viện bạn chọn
+import Icon from 'react-native-vector-icons/Ionicons';
 const TuVungVIPLuyenThi = () => {
   const navigation = useNavigation();
 
