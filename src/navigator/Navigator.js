@@ -14,6 +14,11 @@ import TransScreen from "../component/TransScreen";
 import TuDienVietAnhScreen from "../component/TuDienVietAnhScreen";
 import UngDungHocTiengAnhKhacScreen from "../component/UngDungHocTiengAnhKhacScreen";
 import CaiDatScreen from "../component/CaiDatScreen";
+import TuVungTOEICScreen from "../component/TuVungTOEICScreen";
+import TuVungIELTSScreen from "../component/TuVungIELTSScreen";
+import TuVungOxfordScreen from "../component/TuVungOxfordScreen";
+import TuVungTOEFLScreen from "../component/TuVungTOEFLScreen";
+import DongTuBatQuyTacScreen from "../component/DongTuBatQuyTacScreen";
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -23,6 +28,31 @@ const Navigator = () => {
         <Stack.Screen
           name="Main"
           component={Main}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DongTuBatQuyTacScreen"
+          component={DongTuBatQuyTacScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TuVungTOEFLScreen"
+          component={TuVungTOEFLScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TuVungOxfordScreen"
+          component={TuVungOxfordScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TuVungTOEICScreen"
+          component={TuVungTOEICScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TuVungIELTSScreen"
+          component={TuVungIELTSScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -36,12 +66,12 @@ const Navigator = () => {
           component={TuDaTraScreen}
           options={{ headerShown: false }}
         />
-              <Stack.Screen
+        <Stack.Screen
           name="CaiDatScreen"
           component={CaiDatScreen}
           options={{ headerShown: false }}
         />
-          <Stack.Screen
+        <Stack.Screen
           name="UngDungHocTiengAnhKhacScreen"
           component={UngDungHocTiengAnhKhacScreen}
           options={{ headerShown: false }}
@@ -62,7 +92,7 @@ const Navigator = () => {
             headerTintColor: "white",
           }}
         />
-<Stack.Screen
+        <Stack.Screen
           name="TransScreen"
           component={TransScreen}
           options={{
@@ -105,13 +135,13 @@ const Navigator = () => {
             headerTintColor: "white",
             headerBackground: () => (
               <Image
-                style={{ flex: 1, resizeMode: 'cover', width: '100%' }}
-                source={require('/assets/headerScreen.jpg')}
+                style={{ flex: 1, resizeMode: "cover", width: "100%" }}
+                source={require("/assets/headerScreen.jpg")}
               />
             ),
           }}
         />
-          <Stack.Screen
+        <Stack.Screen
           name="TuVungSGK"
           component={TuVungSGK}
           options={{
@@ -121,13 +151,13 @@ const Navigator = () => {
             headerTintColor: "white",
             headerBackground: () => (
               <Image
-                style={{ flex: 1, resizeMode: 'cover', width: '100%' }}
-                source={require('/assets/headerScreen.jpg')}
+                style={{ flex: 1, resizeMode: "cover", width: "100%" }}
+                source={require("/assets/headerScreen.jpg")}
               />
             ),
           }}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="TuVungSGKmoi"
           component={TuVungSGKmoi}
           options={{
@@ -137,8 +167,8 @@ const Navigator = () => {
             headerTintColor: "white",
             headerBackground: () => (
               <Image
-                style={{ flex: 1, resizeMode: 'cover', width: '100%' }}
-                source={require('/assets/headerScreen.jpg')}
+                style={{ flex: 1, resizeMode: "cover", width: "100%" }}
+                source={require("/assets/headerScreen.jpg")}
               />
             ),
           }}

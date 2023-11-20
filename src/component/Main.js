@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -16,10 +16,10 @@ import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
-  const navigate = useNavigation(); 
-  const [searchText, setSearchText] = useState('');
+  const navigate = useNavigation();
+  const [searchText, setSearchText] = useState("");
   const handleSearch = () => {
-    navigate.navigate('TransScreen', { searchText });
+    navigate.navigate("TransScreen", { searchText });
   };
 
   const items = [
@@ -56,7 +56,6 @@ const Main = () => {
       id: 5,
       text: "Từ điển Anh Việt",
       image: require("/assets/file.png"),
-     
     },
     {
       id: 5,
@@ -152,10 +151,10 @@ const Main = () => {
             subItem.id === 4
               ? styles.shortRow
               : subItem.id === 3
-                ? styles.shortRow1
-                : subItem.id === 11
-                  ? styles.row2
-                  : null,
+              ? styles.shortRow1
+              : subItem.id === 11
+              ? styles.row2
+              : null,
           ]}
           onPress={subItem.handle}
         >
@@ -171,32 +170,46 @@ const Main = () => {
           {subItem.id === 11 && (
             <View style={{ flexDirection: "column", marginTop: 40 }}>
               <View style={{ flex: 1, marginLeft: -170 }}>
-                <Text style={{ fontSize: 13, fontWeight: "bold", width: 180 }}>
-                  Động từ bất quy tắc
-                </Text>
-                <Text>Hoàn thành 0%</Text>
-                <Text style={{ fontSize: 13, fontWeight: "bold" }}>
-                  Từ vựng TOEFL
-                </Text>
-
-                <Text>Hoàn thành 0%</Text>
-                <Text style={{ fontSize: 13, fontWeight: "bold" }}>
-                  300 từ vựng Oxford
-                </Text>
-
-                <Text>Hoàn thành 0%</Text>
+              <Pressable onPress={() => navigate.navigate('DongTuBatQuyTacScreen')}>
+                  <Text
+                    style={{ fontSize: 13, fontWeight: "bold", width: 180 }}
+                  >
+                    Động từ bất quy tắc
+                  </Text>
+                  <Text>Hoàn thành 0%</Text>
+                </Pressable>
+                <Pressable onPress={() => navigate.navigate('TuVungTOEFLScreen')}>
+                  {" "}
+                  <Text style={{ fontSize: 13, fontWeight: "bold" }}>
+                    Từ vựng TOEFL
+                  </Text>
+                  <Text>Hoàn thành 0%</Text>
+                </Pressable>
+                <Pressable onPress={() => navigate.navigate('TuVungOxfordScreen')}>
+                  {" "}
+                  <Text style={{ fontSize: 13, fontWeight: "bold" }}>
+                    300 từ vựng Oxford
+                  </Text>
+                  <Text>Hoàn thành 0%</Text>
+                </Pressable>
               </View>
+
               <View style={{ marginTop: -110, marginLeft: 30 }}>
-                <Text style={{ fontSize: 13, fontWeight: "bold" }}>
-                  Từ vựng TOEIC
-                </Text>
+              <Pressable onPress={() => navigate.navigate('TuVungTOEICScreen')}>
+                  {" "}
+                  <Text style={{ fontSize: 13, fontWeight: "bold" }}>
+                    Từ vựng TOEIC
+                  </Text>
+                  <Text>Hoàn thành 0%</Text>
+                </Pressable>
 
-                <Text>Hoàn thành 0%</Text>
-                <Text style={{ fontSize: 13, fontWeight: "bold" }}>
-                  Từ vựng IELTS
-                </Text>
-
-                <Text>Hoàn thành 0%</Text>
+                <Pressable onPress={() => navigate.navigate('TuVungIELTSScreen')}>
+                  {" "}
+                  <Text style={{ fontSize: 13, fontWeight: "bold" }}>
+                    Từ vựng IELTS
+                  </Text>
+                  <Text>Hoàn thành 0%</Text>
+                </Pressable>
               </View>
             </View>
           )}
@@ -219,26 +232,30 @@ const Main = () => {
         >
           TFlat
         </Text>
-        <Pressable onPress={() => {
-          navigate.navigate("DangKyVipScreen");
-        }}><Image
+        <Pressable
+          onPress={() => {
+            navigate.navigate("DangKyVipScreen");
+          }}
+        >
+          <Image
             style={{ width: 30, height: 30, marginLeft: 320, marginTop: -25 }}
             source={require("/assets/mdi_cart.png")}
-          /></Pressable>
-  <TextInput
-        style={styles.search}
-        placeholder="Tra từ điển Anh Việt - Việt Anh"
-        value={searchText}
-        onChangeText={(text) => setSearchText(text)}
-      />
-      <TouchableOpacity onPress={handleSearch}>
-        <Icon
-          name="search"
-          size={20}
-          color="#9ca0a6"
-          style={{ marginLeft: "-80%", marginTop: "-8%" }}
+          />
+        </Pressable>
+        <TextInput
+          style={styles.search}
+          placeholder="Tra từ điển Anh Việt - Việt Anh"
+          value={searchText}
+          onChangeText={(text) => setSearchText(text)}
         />
-      </TouchableOpacity>
+        <TouchableOpacity onPress={handleSearch}>
+          <Icon
+            name="search"
+            size={20}
+            color="#9ca0a6"
+            style={{ marginLeft: "-80%", marginTop: "-8%" }}
+          />
+        </TouchableOpacity>
         <Icon
           name="microphone"
           size={25}
@@ -344,7 +361,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 50,
     width: "90%",
-    marginLeft:-20,
+    marginLeft: -20,
     paddingHorizontal: 40,
     fontFamily: "Roboto",
     color: "#9ca0a6",
@@ -376,7 +393,6 @@ const styles = StyleSheet.create({
     height: 180,
     alignItems: "flex-start",
     paddingVertical: 15,
-
   },
   itemText: {
     fontFamily: "Roboto",
@@ -398,7 +414,7 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: "center",
     flexDirection: "row",
-    paddingRight: 10
+    paddingRight: 10,
   },
 });
 
