@@ -15,17 +15,34 @@ const AnhVietScreen = ({ searchText }) => {
           `https://api.mymemory.translated.net/get?q=${searchText}&langpair=en|vi`
         );
         const data = await response.json();
-
+  
         if (data && data.responseData) {
           setTranslatedText(data.responseData.translatedText);
+  
+          const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: Math.floor(Math.random() * 1000) + 1,
+              title: searchText,
+              phonetically: null,
+              translate: data.responseData.translatedText,
+              not: false,
+            }),
+          });
+  
+          const saveData = await saveResponse.json();
+          console.log("Saved data:", saveData);
         }
       } catch (error) {
         console.error("Error fetching translation:", error);
       }
     };
-
+  
     fetchTranslation();
-  }, [searchText]);
+  }, [searchText])
 
   return (
     <View>
