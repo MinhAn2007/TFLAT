@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   StyleSheet,
   Text,
@@ -16,7 +16,12 @@ import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
-  const navigate = useNavigation();
+  const navigation = useNavigation(); 
+  const [searchText, setSearchText] = useState('');
+  const handleSearch = () => {
+    navigation.navigate('TransScreen', { searchText });
+  };
+
   const items = [
     {
       id: 1,
@@ -123,7 +128,6 @@ const Main = () => {
     }
   });
 
-  // Đảm bảo rằng dòng cuối cùng cũng được thêm vào processedItems nếu cần.Test
   if (currentRow.length > 0) {
     processedItems.push(currentRow);
   }
@@ -211,21 +215,25 @@ const Main = () => {
             style={{ width: 30, height: 30, marginLeft: 320, marginTop: -25 }}
             source={require("/assets/mdi_cart.png")}
           /></Pressable>
-        <TextInput
-          style={styles.search}
-          placeholder="Tra từ điển Anh Việt - Việt Anh"
-        ></TextInput>
+  <TextInput
+        style={styles.search}
+        placeholder="Tra từ điển Anh Việt - Việt Anh"
+        value={searchText}
+        onChangeText={(text) => setSearchText(text)}
+      />
+      <TouchableOpacity onPress={handleSearch}>
         <Icon
           name="search"
           size={20}
           color="#9ca0a6"
           style={{ marginLeft: "-80%", marginTop: "-8%" }}
-        ></Icon>
+        />
+      </TouchableOpacity>
         <Icon
           name="microphone"
           size={25}
           color="black"
-          style={{ marginLeft: "75%", marginTop: "-6%" }}
+          style={{ marginLeft: "75%", marginTop: "-3%" }}
         ></Icon>
         <Pressable
           style={{ marginLeft: "-50%", marginTop: "6%" }}
@@ -323,10 +331,10 @@ const styles = StyleSheet.create({
   },
   search: {
     backgroundColor: "#FFFFFF",
-    marginTop: 20,
     height: 40,
     borderRadius: 50,
     width: "90%",
+    marginLeft:-20,
     paddingHorizontal: 40,
     fontFamily: "Roboto",
     color: "#9ca0a6",

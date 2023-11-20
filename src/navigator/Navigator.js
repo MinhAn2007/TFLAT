@@ -10,6 +10,7 @@ import DangKyVipScreen from "../component/DangKyVipScreen";
 import TuDaTraScreen from "../component/TuDaTraScreen";
 import TuVungSGK from "../component/TuVungSGK";
 import TuVungSGKmoi from "../component/TuVungSGKmoi";
+import TransScreen from "../component/TransScreen";
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -43,7 +44,17 @@ const Navigator = () => {
             headerTintColor: "white",
           }}
         />
-
+<Stack.Screen
+          name="TransScreen"
+          component={TransScreen}
+          options={{
+            headerShown: true,
+            title: "Đăng nhập",
+            headerTitleAlign: "center",
+            headerStyle: { backgroundColor: "#0052B4" },
+            headerTintColor: "white",
+          }}
+        />
         <Stack.Screen
           name="HienThiManHinhKhoa"
           component={HienThiManHinhKhoa}
