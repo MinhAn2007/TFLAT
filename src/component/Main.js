@@ -242,6 +242,7 @@ const Main = () => {
             source={require("/assets/mdi_cart.png")}
           />
         </Pressable>
+       
         <TextInput
           style={styles.search}
           placeholder="Tra từ điển Anh Việt - Việt Anh"
@@ -252,15 +253,15 @@ const Main = () => {
           <Icon
             name="search"
             size={20}
-            color="#9ca0a6"
-            style={{ marginLeft: "-80%", marginTop: "-8%" }}
+            color='red'
+            style={{ marginLeft: -160,marginTop:-30,position:'flex',zIndex:1,color:'grey'}}
           />
         </TouchableOpacity>
         <Icon
           name="microphone"
           size={25}
           color="black"
-          style={{ marginLeft: "75%", marginTop: "-3%" }}
+          style={{ marginLeft: "75%", marginTop: "-9%",zIndex:1,marginBottom:10 }}
         ></Icon>
         <Pressable
           style={{ marginLeft: "-50%", marginTop: "6%" }}
@@ -359,16 +360,16 @@ const styles = StyleSheet.create({
   search: {
     backgroundColor: "#FFFFFF",
     height: 40,
+    marginTop:15,
+    
     borderRadius: 50,
     width: "90%",
-    marginLeft: -20,
     paddingHorizontal: 40,
     fontFamily: "Roboto",
     color: "#9ca0a6",
     fontSize: 17,
     fontWeight: "bold",
     top: 0,
-    zIndex: 1,
   },
   row: {
     flexDirection: "row",
