@@ -96,6 +96,27 @@
       "phonetically": null,
       "translate": "tìm, tìm thấy",
       "not": false
+    },
+    {
+      "id": 614,
+      "title": "conversation",
+      "phonetically": null,
+      "translate": "hội thoại",
+      "not": false
+    },
+    {
+      "id": 544,
+      "title": "",
+      "phonetically": null,
+      "translate": "NO QUERY SPECIFIED. EXAMPLE REQUEST: GET?Q=HELLO&LANGPAIR=EN|IT",
+      "not": false
+    },
+    {
+      "id": 316,
+      "title": "pull requests",
+      "phonetically": null,
+      "translate": "yêu cầu kéo",
+      "not": false
     }
   ],
   "dataTuCuaBan1": [

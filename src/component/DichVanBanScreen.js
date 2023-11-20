@@ -4,8 +4,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import { useNavigation } from '@react-navigation/native';
 export default function DichVanBanScreen() {
+    const navigation = useNavigation();
     var [data, setData] = useState([]);
 
     var [star, setStar] = useState(false)
@@ -45,7 +46,8 @@ export default function DichVanBanScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} />
+            <Pressable onPress={() => navigation.goBack()}>
+                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                 <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Dịch văn bản</Text>
             </View>
 

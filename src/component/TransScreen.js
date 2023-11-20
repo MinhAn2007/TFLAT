@@ -78,7 +78,7 @@ const AnhVietScreen = ({ searchText }) => {
           {searchText}
         </Text>
         <Image
-          style={{ width: 30, height: 30, marginLeft: 240 }}
+          style={{ width: 30, height: 30, marginLeft: 190 }}
           source={require("/assets/s.png")}
         ></Image>
         <Text style={{ color: "blue", marginLeft: 10, fontSize: 16 }}>UK</Text>

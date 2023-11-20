@@ -20,6 +20,7 @@ import TuVungOxfordScreen from "../component/TuVungOxfordScreen";
 import TuVungTOEFLScreen from "../component/TuVungTOEFLScreen";
 import DongTuBatQuyTacScreen from "../component/DongTuBatQuyTacScreen";
 import TuCuaBanScreen from "../component/TuCuaBanScreen";
+import  DichVanBanScreen from "../component/DichVanBanScreen";
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -61,7 +62,11 @@ const Navigator = () => {
           component={DangKyVipScreen}
           options={{ headerShown: false }}
         />
-
+         <Stack.Screen
+          name="DichVanBanScreen"
+          component={DichVanBanScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="TuDaTraScreen"
           component={TuDaTraScreen}
