@@ -16,10 +16,10 @@ import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
-  const navigation = useNavigation(); 
+  const navigate = useNavigation(); 
   const [searchText, setSearchText] = useState('');
   const handleSearch = () => {
-    navigation.navigate('TransScreen', { searchText });
+    navigate.navigate('TransScreen', { searchText });
   };
 
   const items = [
@@ -56,11 +56,15 @@ const Main = () => {
       id: 5,
       text: "Từ điển Anh Việt",
       image: require("/assets/file.png"),
+     
     },
     {
       id: 5,
       text: "Từ điển Anh Việt",
       image: require("/assets/file.png"),
+      handle: () => {
+        navigate.navigate("TuDienVietAnhScreen");
+      },
     },
     {
       id: 6,
@@ -105,11 +109,17 @@ const Main = () => {
       id: 12,
       text: "Các ứng dụng học Tiếng Anh khác",
       image: require("/assets/6.png"),
+      handle: () => {
+        navigate.navigate("UngDungHocTiengAnhKhacScreen");
+      },
     },
     {
       id: 13,
       text: "Cài đặt",
       image: require("/assets/settings.png"),
+      handle: () => {
+        navigate.navigate("CaiDatScreen");
+      },
     },
   ];
 

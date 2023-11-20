@@ -11,6 +11,9 @@ import TuDaTraScreen from "../component/TuDaTraScreen";
 import TuVungSGK from "../component/TuVungSGK";
 import TuVungSGKmoi from "../component/TuVungSGKmoi";
 import TransScreen from "../component/TransScreen";
+import TuDienVietAnhScreen from "../component/TuDienVietAnhScreen";
+import UngDungHocTiengAnhKhacScreen from "../component/UngDungHocTiengAnhKhacScreen";
+import CaiDatScreen from "../component/CaiDatScreen";
 const Stack = createNativeStackNavigator();
 
 const Navigator = () => {
@@ -31,6 +34,21 @@ const Navigator = () => {
         <Stack.Screen
           name="TuDaTraScreen"
           component={TuDaTraScreen}
+          options={{ headerShown: false }}
+        />
+              <Stack.Screen
+          name="CaiDatScreen"
+          component={CaiDatScreen}
+          options={{ headerShown: false }}
+        />
+          <Stack.Screen
+          name="UngDungHocTiengAnhKhacScreen"
+          component={UngDungHocTiengAnhKhacScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TuDienVietAnhScreen"
+          component={TuDienVietAnhScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
