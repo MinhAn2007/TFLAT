@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 
 export default function TuDienVietAnhScreen() {
+    const navigation = useNavigation();
     var [data, setData] = useState([]);
     const [isSelected, setSelection] = useState(false);
 
@@ -24,7 +26,8 @@ export default function TuDienVietAnhScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} />
+                <Pressable onPress={() => navigation.goBack()}>
+                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                 <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Từ điển Việt Anh</Text>
             </View>
 
