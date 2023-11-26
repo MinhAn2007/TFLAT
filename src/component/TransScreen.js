@@ -102,7 +102,7 @@ const AnhVietScreen = ({ searchText, translations, keyText, phoneticsText }) => 
           ))}
         </View>
         <Image
-          style={{ width: 60, height: 60, marginLeft: 300, marginTop: 60, zIndex: 1 }}
+          style={{ width: 60, height: 60, marginLeft: 300, marginTop: 200, zIndex: 1 ,position:'absolute'}}
           source={require("/assets/cs.png")}
         />
       </View>
@@ -141,12 +141,6 @@ const AnhAnhScreen = ({ translations }) => (
   </View>
 );
 
-
-const ChuyenNganhScreen = () => (
-  <View>
-    <Text>CHUYÊN NGÀNH Content</Text>
-  </View>
-);
 
 const Tab = createMaterialTopTabNavigator();
 
