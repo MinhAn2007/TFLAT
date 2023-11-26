@@ -74,6 +74,8 @@ Liên tục điều chỉnh giao diện dựa trên phản hồi người dùng 
 ## VIII. Thành Viên
 - Nguyễn Lê Mỹ Châu (Nhóm Trưởng)npx json-server --watch TFlat.json --port 3000
 - Võ Ngọc Minh An
+
+
 Run app :
 - Tải project
 - Mở project ở IDE hoặc Text Editor (ex :Vs code )
