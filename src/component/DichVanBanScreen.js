@@ -10,6 +10,8 @@ export default function DichVanBanScreen() {
     var [data, setData] = useState([]);
 
     var [star, setStar] = useState(false)
+    const [translatedText, setTranslatedTextdata] = useState("");
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
         getAPIDangKyVip()
@@ -40,8 +42,79 @@ export default function DichVanBanScreen() {
         }
     }
 
-
-
+    const handleSearch = (text) => {
+        console.log("Searching for:", text);
+        const fetchTranslation = async () => {
+            try {
+                const response = await fetch(
+                    `https://api.mymemory.translated.net/get?q=${text}&langpair=en|vi`
+                );
+                const data = await response.json();
+    
+                if (data && data.responseData) {
+                    setTranslatedTextdata(data.responseData.translatedText);
+    
+                    const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            id: Math.floor(Math.random() * 1000) + 1,
+                            title: text,
+                            phonetically: null,
+                            translate: data.responseData.translatedText,
+                            not: false,
+                        }),
+                    });
+    
+                    const saveData = await saveResponse.json();
+                    console.log("Saved data:", saveData);
+                }
+            } catch (error) {
+                console.error("Error fetching translation:", error);
+            }
+        };
+    
+        fetchTranslation();
+    };
+    
+    const handleSearchVN = (text) => {
+        console.log("Searching for:", text);
+        const fetchTranslation = async () => {
+            try {
+                const response = await fetch(
+                    `https://api.mymemory.translated.net/get?q=${text}&langpair=vi|en`
+                );
+                const data = await response.json();
+    
+                if (data && data.responseData) {
+                    setTranslatedTextdata(data.responseData.translatedText);
+    
+                    const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            id: Math.floor(Math.random() * 1000) + 1,
+                            title: text, 
+                            phonetically: null,
+                            translate: data.responseData.translatedText,
+                            not: false,
+                        }),
+                    });
+    
+                    const saveData = await saveResponse.json();
+                    console.log("Saved data:", saveData);
+                }
+            } catch (error) {
+                console.error("Error fetching translation:", error);
+            }
+        };
+    
+        fetchTranslation();
+    };
 
     return (
         <View style={styles.container}>
@@ -56,8 +129,9 @@ export default function DichVanBanScreen() {
                     multiline={true}
                     style={styles.input}
                     placeholder="Nhập cụm từ, câu văn hoặc đoạn văn."
+                    value={searchText}
+                    onChangeText={setSearchText}
                 />
-
                 <View style={{ flexDirection: 'column', paddingTop: 7 }}>
                     <Feather name='x' size={30} style={{ color: '#898181', left: 13 }} />
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -69,6 +143,7 @@ export default function DichVanBanScreen() {
                 </View>
 
             </View>
+            <Text>{translatedText}</Text>
 
             <View style={{ width: '90%', height: 40, marginBottom: 30, marginLeft: 10, flexDirection: 'row', alignItems: 'center' }}>
                 <FontAwesome name="square" size={45} style={{ color: '#7A7474', left: 27 }} />
@@ -88,12 +163,12 @@ export default function DichVanBanScreen() {
             </View>
 
             <View style={{ width: '90%', height: 40, marginBottom: 20, marginLeft: 20, flexDirection: 'row', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.btnOnTap}>
+            <TouchableOpacity style={styles.btnOnTap} onPress={() => handleSearchVN(searchText)}>
                     <Text style={{ fontSize: 18, color: 'white', fontWeight: 600 }}>Việt - Anh</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.btnOnTap}>
-                    <Text style={{ fontSize: 18, color: 'white', fontWeight: 600 }}>Anh - Việt</Text>
+                <TouchableOpacity style={styles.btnOnTap} onPress={() => handleSearch(searchText)}>
+                <Text style={{ fontSize: 18, color: 'white', fontWeight: 600 }}>Anh - Việt</Text>
                 </TouchableOpacity>
 
             </View>

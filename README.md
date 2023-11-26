@@ -30,6 +30,7 @@ Sử dụng API bên ngoài để thực hiện chức năng tìm kiếm từ đ
 ## III. Tích Hợp Chức Năng Tìm Kiếm và Hiển Thị Từ Đã Tra
 
 ### 1. Tích Hợp API Ngoại Việt
+Kết nối với API từ một nguồn ngoại việt như https://dictionaryapi.dev/ dể co the cung cấp tu dien ve tu da tim kiem nhu tu loai, nghia, vi du, v.v.
 Kết nối với API từ một nguồn ngoại việt như mymemory.translated để cung cấp dịch nhanh và chính xác.
 
 ### 2. Lưu Trữ Dữ Liệu Từ Đã Tra
