@@ -4,144 +4,64 @@ import { View, Text, Image, Pressable } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { ScrollView } from "react-native-web";
 
-const AnhVietScreen = ({ searchText }) => {
-  const [translatedText, setTranslatedText] = useState("");
-
-  useEffect(() => {
-    const fetchTranslation = async () => {
-      try {
-        const response = await fetch(
-          `https://api.mymemory.translated.net/get?q=${searchText}&langpair=en|vi`
-        );
-        const data = await response.json();
-  
-        if (data && data.responseData) {
-          setTranslatedText(data.responseData.translatedText);
-  
-          const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              id: Math.floor(Math.random() * 1000) + 1,
-              title: searchText,
-              phonetically: null,
-              translate: data.responseData.translatedText,
-              not: false,
-            }),
-          });
-  
-          const saveData = await saveResponse.json();
-          console.log("Saved data:", saveData);
-        }
-      } catch (error) {
-        console.error("Error fetching translation:", error);
-      }
-    };
-  
-    fetchTranslation();
-  }, [searchText])
-
+const AnhVietScreen = ({ searchText, translations, keyText, phoneticsText }) => {
   return (
-    <View>
-      <View
-        style={{
-          marginTop: 10,
-          marginLeft: 10,
-          borderWidth: 2,
-          borderRadius: 30,
-          borderColor: "blue",
-          width: 100,
-          padding: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: "blue",
-            textAlign: "center",
-            justifyContent: "center",
-          }}
-        >
-          Danh từ
-        </Text>
-      </View>
-      <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 10 }}>
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 18,
-            textDecorationLine: "underline",
-          }}
-        >
-          {searchText}
-        </Text>
+    <ScrollView>
+      <View>
+        <Text>{keyText}</Text>
+        <Text>{phoneticsText}</Text>
+        <View style={{ flexDirection: "column", marginTop: 10 }}>
+          {translations.map((translation, index) => (
+            <View key={index} style={{ marginLeft: 10 }}>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ fontWeight: 'bold', marginRight: 5 }}>{translation.en}:</Text>
+                <Text>{translation.vi}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
         <Image
-          style={{ width: 30, height: 30, marginLeft: 190 }}
-          source={require("/assets/s.png")}
-        ></Image>
-        <Text style={{ color: "blue", marginLeft: 10, fontSize: 16 }}>UK</Text>
+          style={{ width: 60, height: 60, marginLeft: 300, marginTop: 60, zIndex: 1 }}
+          source={require("/assets/cs.png")}
+        />
       </View>
-      <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 10 }}>
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 18,
-            textDecorationLine: "underline",
-          }}
-        >
-          Danh từ
-        </Text>
-        <Image
-          style={{ width: 30, height: 30, marginLeft: 210 }}
-          source={require("/assets/s.png")}
-        ></Image>
-        <Text style={{ color: "blue", marginLeft: 10, fontSize: 16 }}>UK</Text>
-      </View>
-      <View style={{ flexDirection: "row" }}>
-        {" "}
-        <Image
-          style={{
-            width: 40,
-            height: 40,
-            marginLeft: 15,
-            marginTop: 10,
-            fontWeight: "bold",
-          }}
-          source={require("/assets/Vector.png")}
-        ></Image>
-        <Text
-          style={{
-            color: "#D277D2",
-            fontSize: 22,
-            marginTop: 10,
-            marginLeft: 30,
-            fontWeight: "bold",
-          }}
-        >
-          {translatedText}
-        </Text>
-      </View>
-      <Image
-        style={{ width: 60, height: 60, marginLeft: 300, marginTop: 60,zIndex:1 }}
-        source={require("/assets/cs.png")}
-      ></Image>
-    </View>
+    </ScrollView>
   );
 };
 
-const NguPhapScreen = () => (
+const NguPhapScreen = ({ translations }) => (
   <View>
-    <Text>NGỮ PHÁP Content</Text>
+    <View style={{ flexDirection: "column", marginTop: 10 }}>
+      {translations.map((translation, index) => (
+        <View key={index} style={{ marginLeft: 10 }}>
+          <View style={{ flexDirection: 'row' }}>
+            <Text>{translation.synonyms.length > 0 ? `Synonyms: ${translation.synonyms.join(', ')}` : ''}</Text>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <Text>{translation.antonyms.length > 0 ? `Antonyms: ${translation.antonyms.join(', ')}` : ''}</Text>
+          </View>
+        </View>
+      ))}
+    </View>
   </View>
 );
 
-const AnhAnhScreen = () => (
+const AnhAnhScreen = ({ translations }) => (
   <View>
-    <Text>ANH ANH Content</Text>
+    <View style={{ flexDirection: "column", marginTop: 10 }}>
+      {translations.map((translation, index) => (
+        <View key={index} style={{ marginLeft: 10 }}>
+          <View style={{ flexDirection: 'column' }}>
+            <Text>{translation.definitions}</Text>
+          </View>
+        </View>
+      ))}
+    </View>
   </View>
 );
+
 
 const ChuyenNganhScreen = () => (
   <View>
@@ -155,6 +75,93 @@ const TransScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { searchText } = route.params;
+  const [data, setData] = useState([]);
+  const [translations, setTranslations] = useState([]);
+  const [key, setKey] = useState(null);
+  const [phonetics, setPhonetics] = useState(null);
+
+  useEffect(() => {
+    const fetchTranslation = async () => {
+      try {
+        const keyTran = await fetch(
+          `https://api.mymemory.translated.net/get?q=${searchText}&langpair=en|vi`
+        );
+        const keyData = await keyTran.json();
+        setKey(keyData.responseData.translatedText);
+
+        const response = await fetch(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${searchText}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error fetching translation: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setData(data[0].meanings);
+        console.log(data[0].meanings);
+        if (Array.isArray(data) && data.length > 0) {
+          const translationsArray = [];
+          for (const meaning of data[0].meanings) {
+            for (const definitionObj of meaning.definitions) {
+              const translationResponse = await fetch(
+                `https://api.mymemory.translated.net/get?q=${definitionObj.example}&langpair=en|vi`
+              );
+
+              if (!translationResponse.ok) {
+                throw new Error(`Error fetching translation: ${translationResponse.status}`);
+              }
+
+              const translationData = await translationResponse.json();
+              if (
+                translationData &&
+                translationData.responseData &&
+                definitionObj.example != null &&
+                definitionObj.example != undefined &&
+                definitionObj.example != ""
+              ) {
+                translationsArray.push({
+                  definitions: definitionObj.definition,
+                  synonyms: definitionObj.synonyms,
+                  en: definitionObj.example,
+                  vi: translationData.responseData.translatedText,
+                });
+              }
+            }
+          }
+
+          setTranslations(translationsArray);
+          setPhonetics(data[0].phonetics[0]?.text || null);
+
+          try {
+            const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id: Math.floor(Math.random() * 1000) + 1,
+                title: searchText,
+                phonetically: data[0].phonetics[0].text,
+                translate: keyData.responseData.translatedText,
+                not: false,
+              }),
+            });
+
+            if (!saveResponse.ok) {
+              throw new Error(`Error saving data: ${saveResponse.status}`);
+            }
+          } catch (saveError) {
+            console.error("Error saving data:", saveError);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchTranslation();
+  }, [searchText]);
 
   return (
     <View style={{ flex: 1 }}>
@@ -191,7 +198,6 @@ const TransScreen = () => {
             source={require("/assets/star2.png")}
           />
         </View>
-        
       </View>
       <Tab.Navigator
         tabBarOptions={{
@@ -202,13 +208,15 @@ const TransScreen = () => {
         }}
       >
         <Tab.Screen name="ANH VIỆT">
-          {() => <AnhVietScreen searchText={searchText} />}
+          {() => <AnhVietScreen searchText={searchText} translations={translations} keyText={key} phoneticsText={phonetics} />}
         </Tab.Screen>
-        <Tab.Screen name="NGỮ PHÁP" component={NguPhapScreen} />
-        <Tab.Screen name="ANH ANH" component={AnhAnhScreen} />
-        <Tab.Screen name="CHUYÊN NGÀNH" component={ChuyenNganhScreen} />
+        <Tab.Screen name="NGỮ PHÁP">
+          {() => <NguPhapScreen translations={data} />}
+        </Tab.Screen>
+        <Tab.Screen name="ANH ANH">
+          {() => <AnhAnhScreen translations={translations} />}
+        </Tab.Screen>
       </Tab.Navigator>
-     
     </View>
   );
 };

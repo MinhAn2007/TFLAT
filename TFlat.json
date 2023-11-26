@@ -117,6 +117,34 @@
       "phonetically": null,
       "translate": "yêu cầu kéo",
       "not": false
+    },
+    {
+      "id": 36,
+      "title": "check",
+      "phonetically": "/t͡ʃɛk/",
+      "translate": "kiếm tra",
+      "not": false
+    },
+    {
+      "id": 921,
+      "title": "check",
+      "phonetically": "/t͡ʃɛk/",
+      "translate": "kiếm tra",
+      "not": false
+    },
+    {
+      "id": 739,
+      "title": "good",
+      "phonetically": "/ɡʊ(d)/",
+      "translate": "tốt, hay, tuyệt; điểu tốt, điều thiện",
+      "not": false
+    },
+    {
+      "id": 401,
+      "title": "good",
+      "phonetically": "/ɡʊ(d)/",
+      "translate": "tốt, hay, tuyệt; điểu tốt, điều thiện",
+      "not": false
     }
   ],
   "dataTuCuaBan1": [
