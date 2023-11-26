@@ -72,5 +72,13 @@ Tiếp tục sử dụng các công cụ thu thập phản hồi để đo lư�
 Liên tục điều chỉnh giao diện dựa trên phản hồi người dùng để tối ưu hóa trải nghiệm và cải thiện tính năng ứng dụng.
 
 ## VIII. Thành Viên
-- Nguyễn Lê Mỹ Châu (Nhóm Trưởng)
+- Nguyễn Lê Mỹ Châu (Nhóm Trưởng)npx json-server --watch TFlat.json --port 3000
 - Võ Ngọc Minh An
+Run app :
+- Tải project
+- Mở project ở IDE hoặc Text Editor (ex :Vs code )
+- Mở terminal trong floder chứ file node_modules
+- run lệnh : npm run web 
+- mở một cửa sổ terminal khác để khởi động json server 
+- run lệnh : npx json-server --watch TFlat.json --port 3000
+- Project được start ở http://localhost:19006/
