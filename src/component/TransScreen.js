@@ -10,7 +10,86 @@ const AnhVietScreen = ({ searchText, translations, keyText, phoneticsText }) => 
   return (
     <ScrollView>
       <View>
-        <Text>{keyText}</Text>
+      <View
+        style={{
+          marginTop: 10,
+          marginLeft: 10,
+          borderWidth: 2,
+          borderRadius: 30,
+          borderColor: "blue",
+          width: 100,
+          padding: 5,
+        }}
+      >
+        <Text
+          style={{
+            color: "blue",
+            textAlign: "center",
+            justifyContent: "center",
+          }}
+        >
+          Danh từ
+        </Text>
+      </View>
+      <View>
+        <View
+        style={{
+          marginTop: -30,
+          marginLeft: -110,
+          borderWidth: 2,
+          borderRadius: 30,
+          borderColor: "blue",
+          width: 100,
+          padding: 5,
+          zIndex: 1,
+        }}
+      >
+        <Text
+          style={{
+            color: "blue",
+            textAlign: "center",
+            justifyContent: "center",
+          }}
+        >
+          Danh từ
+        </Text>
+      </View>
+      <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 10 }}>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 18,
+            textDecorationLine: "underline",
+          }}
+        >
+          {searchText}
+        </Text>
+       <View style={{position:'absolute'}}>
+       <Image
+          style={{ width: 30, height: 30, marginLeft: 280 }}
+          source={require("/assets/s.png")}
+        ></Image>
+        <Text style={{ color: "blue", marginLeft: 320, fontSize: 16 ,marginTop:-25}}>UK</Text>
+       </View>
+      </View>
+      <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 10 }}>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 18,
+            textDecorationLine: "underline",
+          }}
+        >
+          Danh từ
+        </Text>
+        <Image
+          style={{ width: 30, height: 30, marginLeft: 210 }}
+          source={require("/assets/s.png")}
+        ></Image>
+        <Text style={{ color: "blue", marginLeft: 10, fontSize: 16 }}>UK</Text>
+      </View>
+        </View>
+        <Text style={{marginTop:50}}>{keyText}</Text>
         <Text>{phoneticsText}</Text>
         <View style={{ flexDirection: "column", marginTop: 10 }}>
           {translations.map((translation, index) => (
@@ -42,12 +121,12 @@ const NguPhapScreen = ({ translations }) => (
           <View style={{ flexDirection: 'row' }}>
             <Text>{translation.antonyms.length > 0 ? `Antonyms: ${translation.antonyms.join(', ')}` : ''}</Text>
           </View>
+          <Text>{'\n'}</Text>
         </View>
       ))}
     </View>
   </View>
 );
-
 const AnhAnhScreen = ({ translations }) => (
   <View>
     <View style={{ flexDirection: "column", marginTop: 10 }}>
@@ -164,6 +243,7 @@ const TransScreen = () => {
   }, [searchText]);
 
   return (
+    <View>
     <View style={{ flex: 1 }}>
       <View style={styles.head}>
         <Pressable onPress={() => navigation.goBack()}>
@@ -198,7 +278,9 @@ const TransScreen = () => {
             source={require("/assets/star2.png")}
           />
         </View>
+      
       </View>
+      
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: "white",
@@ -218,6 +300,9 @@ const TransScreen = () => {
         </Tab.Screen>
       </Tab.Navigator>
     </View>
+   
+    </View>
+
   );
 };
 

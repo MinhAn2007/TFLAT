@@ -145,6 +145,27 @@
       "phonetically": "/ɡʊ(d)/",
       "translate": "tốt, hay, tuyệt; điểu tốt, điều thiện",
       "not": false
+    },
+    {
+      "id": 411,
+      "title": "bad",
+      "phonetically": "/bæːd/",
+      "translate": "tệ",
+      "not": false
+    },
+    {
+      "id": 324,
+      "title": "bad",
+      "phonetically": "/bæːd/",
+      "translate": "tệ",
+      "not": false
+    },
+    {
+      "id": 666,
+      "title": "bad ",
+      "phonetically": "/bæːd/",
+      "translate": "tệ",
+      "not": false
     }
   ],
   "dataTuCuaBan1": [
