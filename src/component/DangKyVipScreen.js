@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -47,7 +47,7 @@ export default function DangKyVipScreen() {
                             <Text style={{ fontSize: 20, fontWeight: '500' }}>{item.title}</Text>
                             <Text style={{ fontSize: 20, color: '#E86A0F', fontWeight: '500' }}>{item.price}.000 đ</Text>
                             <Text style={{ fontSize: 15 }}>{item.cycle}</Text>
-                            <TouchableOpacity style={styles.btnDangKyVip}>
+                            <TouchableOpacity style={styles.btnDangKyVip} onPress={() => Linking.openURL("https://play.google.com/store/apps/details?id=com.vn.dic.e.v.ui&hl=vi&gl=US")}>
                                 <Text style={{ fontSize: 18, color: 'white' }}>Đăng ký VIP</Text>
                             </TouchableOpacity>
                         </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, TouchableOpacity, StyleSheet,FlatList,Image, Pressable } from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity, StyleSheet,FlatList,Image, Pressable,ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 const TuVungVIPLuyenThi = () => {
@@ -102,10 +102,13 @@ const data =[
        </View>
        <Text style={{fontWeight:'650',fontSize:13,color:'gray',marginRight:10}} >{item.content}</Text>
 
-        <Pressable style={{backgroundColor:'#E86A0F',minHeight:40,width:'40%',marginHorizontal:100,marginTop:10,borderRadius:30}}><Text style={{textAlign:'center',paddingTop:10,fontWeight:'blod',color:'white'}}>Mua</Text></Pressable>
+        <Pressable onPress={() => {
+            navigation.navigate("DangKyVipScreen");
+          }} style={{backgroundColor:'#E86A0F',minHeight:40,width:'40%',marginHorizontal:100,marginTop:10,borderRadius:30}}><Text style={{textAlign:'center',paddingTop:10,fontWeight:'blod',color:'white'}}>Mua</Text></Pressable>
     </View>)
   }
   return (
+    <ScrollView>
     <ImageBackground
       source={require('/assets/screen.jpg')}
       style={styles.background}
@@ -126,6 +129,7 @@ const data =[
         >
         </FlatList>
     </ImageBackground>
+    </ScrollView>
   );
 };
 
