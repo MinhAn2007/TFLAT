@@ -72,7 +72,7 @@ Tiếp tục sử dụng các công cụ thu thập phản hồi để đo lư�
 Liên tục điều chỉnh giao diện dựa trên phản hồi người dùng để tối ưu hóa trải nghiệm và cải thiện tính năng ứng dụng.
 
 ## VIII. Thành Viên
-- Nguyễn Lê Mỹ Châu (Nhóm Trưởng)npx json-server --watch TFlat.json --port 3000
+- Nguyễn Lê Mỹ Châu (Nhóm Trưởng)
 - Võ Ngọc Minh An
 
 
