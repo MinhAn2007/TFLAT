@@ -38,7 +38,7 @@
       "title": "speak5",
       "phonetically": "[‘spi:kə(r)]",
       "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": false,
+      "note": true,
       "id": 3
     },
     {
@@ -95,7 +95,14 @@
       "title": "check",
       "phonetically": "/t͡ʃɛk/",
       "translate": "kiếm tra",
-      "note": false
+      "note": true
+    },
+    {
+      "id": 595,
+      "title": "add",
+      "phonetically": "/æd/",
+      "translate": "Thêm",
+      "note": true
     }
   ],
   "dataTuCuaBan1": [
@@ -110,6 +117,24 @@
       "phonetically": "[ə‘baId]",
       "translate": "tôn trọng, tuân theo",
       "id": 2
+    },
+    {
+      "title": "add",
+      "phonetically": "/æd/",
+      "translate": "Thêm",
+      "id": 595
+    },
+    {
+      "title": "check",
+      "phonetically": "/t͡ʃɛk/",
+      "translate": "kiếm tra",
+      "id": 742
+    },
+    {
+      "title": "speak5",
+      "phonetically": "[‘spi:kə(r)]",
+      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+      "id": 3
     }
   ],
   "dataTuCuaBan2": [
@@ -318,39 +343,21 @@
   ],
   "dataDichVanBan": [
     {
-      "title": "giỏ hàng",
-      "trans": "cart",
-      "note": false,
-      "id": 1
-    },
-    {
-      "title": "condependency",
-      "trans": "sự phụ thuộc",
-      "note": false,
-      "id": 2
-    },
-    {
-      "title": "Ẩm ướt",
-      "trans": "wet",
-      "note": false,
-      "id": 3
-    },
-    {
-      "title": "bị chặn",
-      "trans": "blocked",
-      "note": false,
-      "id": 4
-    },
-    {
       "id": 342,
       "title": "Tôi có bài kiểm tra",
-      "trans": "I have a quiz",
+      "translate": "I have a quiz",
       "note": false
     },
     {
       "id": 201,
       "title": "check abcd",
-      "trans": "kiểm tra abcd",
+      "translate": "kiểm tra abcd",
+      "note": false
+    },
+    {
+      "id": 854,
+      "title": "check xyz",
+      "translate": "kiểm tra xyz",
       "note": false
     }
   ]

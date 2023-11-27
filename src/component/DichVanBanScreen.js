@@ -29,20 +29,54 @@ export default function DichVanBanScreen() {
     }
 
     const patchAPITuDaTra = async (data, starAPI) => {
-
-        const url = "http://localhost:3000/dataDichVanBan";
-        let result = await fetch(`${url}/${data}`, {
-            method: 'PATCH',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ note: starAPI })
-        });
-        result = await result.json();
-        if (result) {
-            getAPIDangKyVip()
-        } else {
+        try {
+            const url = "http://localhost:3000/dataDichVanBan";
+            let result = await fetch(`${url}/${data}`, {
+                method: 'PATCH',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ note: starAPI })
+            });
+            result = await result.json();
+            if (result) {
+                getAPIDangKyVip();
+                alert("Patch success")
+            }
+        } catch (error) {
+            console.error("Patch API error:", error);
             alert("Error");
         }
-    }
+    };
+
+    const saveAPITuDaTra = async (data) => {
+        try {
+            const url = "http://localhost:3000/dataTuCuaBan1";
+            let result = await fetch(url, {
+                method: "POST",
+                headers: { 'Accept': 'application/json, text/plain, */*', "Content-Type": "application/json" },
+                body: JSON.stringify({ title: data.title, phonetically: data.phonetically, translate: data.translate, id: data.id })
+            });
+            result = await result.json();
+
+        } catch (error) {
+            console.error("Save API error:", error);
+            alert("Error");
+        }
+    };
+
+    const deleteAPITuDaTra = async (id) => {
+        try {
+            const url = "http://localhost:3000/dataTuCuaBan1/" + id;
+            let result = await fetch(url, {
+                method: "DELETE",
+            });
+            result = await result.json();
+
+        } catch (error) {
+            console.error("Delete API error:", error);
+            alert("Error");
+        }
+    };
+
 
     const handleSearch = (text) => {
         console.log("Searching for:", text);
@@ -64,7 +98,7 @@ export default function DichVanBanScreen() {
                         body: JSON.stringify({
                             id: Math.floor(Math.random() * 1000) + 1,
                             title: text,
-                            trans: data.responseData.translatedText,
+                            translate: data.responseData.translatedText,
                             note: false,
                         }),
                     });
@@ -100,7 +134,7 @@ export default function DichVanBanScreen() {
                         body: JSON.stringify({
                             id: Math.floor(Math.random() * 1000) + 1,
                             title: text,
-                            trans: data.responseData.translatedText,
+                            translate: data.responseData.translatedText,
                             note: false,
                         }),
                     });
@@ -135,7 +169,7 @@ export default function DichVanBanScreen() {
                 <View style={{ flexDirection: 'column', paddingTop: 7 }}>
                     <Feather name='x' size={30} style={{ color: '#898181', left: 13 }} onPress={() => {
                         setBoolInput(false),
-                        setSearchText("")
+                            setSearchText("")
                     }} />
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 13 }} />
@@ -200,7 +234,7 @@ export default function DichVanBanScreen() {
                     <View key={item.id} style={styles.contentVip}>
                         <View style={{ flexDirection: 'column', width: '70%' }}>
                             <Text style={{ fontSize: 17, fontWeight: 500 }}>{item.title}</Text>
-                            <Text style={{ fontSize: 16, fontWeight: 400 }}>{item.trans}</Text>
+                            <Text style={{ fontSize: 16, fontWeight: 400 }}>{item.translate}</Text>
                         </View>
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -208,15 +242,17 @@ export default function DichVanBanScreen() {
                             <Ionicons name="volume-high" size={20} style={{ color: 'white', right: 12 }} />
 
                             <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}
-                                onPress={() => {
-                                    patchAPITuDaTra(item.id, true)
+                                onPress={async() => {
+                                    await patchAPITuDaTra(item.id, true)
+                                    await saveAPITuDaTra(item)
 
                                 }}
                             />
 
                             <AntDesign name="star" size={30} style={{ ...item.note ? styles.buttonPress2 : styles.buttonPress }}
-                                onPress={() => {
-                                    patchAPITuDaTra(item.id, false)
+                                onPress={async() => {
+                                    await patchAPITuDaTra(item.id, false)
+                                    await deleteAPITuDaTra(item.id)
                                 }}
                             />
                         </View>

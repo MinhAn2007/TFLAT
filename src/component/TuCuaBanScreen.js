@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
+import Modal from 'react-native-modal';
 
 export default function TuCuaBanScreen() {
     const navigation = useNavigation();
@@ -12,12 +13,21 @@ export default function TuCuaBanScreen() {
 
     var [boolData, setBoolData] = useState(true)
 
+    var [sort, setSort] = useState(true)
+
+    var [boolModal, setBoolModal] = useState(false)
+
     useEffect(() => {
         getAPIDangKyVip()
-    }, []);
+    }, [sort]);
 
     const getAPIDangKyVip = async () => {
-        const url = "http://localhost:3000/dataTuCuaBan1";
+        const urlTime = "http://localhost:3000/dataTuCuaBan1";
+
+        const urlAZ = "http://localhost:3000/dataTuCuaBan1?_sort=title&_order=asc";
+
+        const url = sort ? urlTime : urlAZ;
+
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
@@ -54,6 +64,14 @@ export default function TuCuaBanScreen() {
             });
     }
 
+    const handleModal = () => {
+        setBoolModal(!boolModal)
+    }
+
+    const handleSortData = async () => {
+        setSort((prevSort) => !prevSort);
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.head}>
@@ -62,7 +80,7 @@ export default function TuCuaBanScreen() {
                         <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                     <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Từ của bạn ({data.length})</Text>
                     <FontAwesome name="folder-open" size={25} style={{ color: 'white', left: 130 }} />
-                    <Ionicons name="reorder-three-outline" size={35} style={{ color: 'white', left: 150 }} />
+                    <Ionicons name="reorder-three-outline" size={35} style={{ color: 'white', left: 150 }} onPress={handleModal} />
                 </View>
 
                 <View style={styles.head2}>
@@ -154,6 +172,34 @@ export default function TuCuaBanScreen() {
                     </TouchableOpacity>
                 </View>
             </View>
+
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={boolModal}
+                onBackdropPress={handleModal}
+            >
+                <View style={{ width: '40%', height: 80, backgroundColor: 'white', alignSelf: 'flex-end', top: '-240px', left: 20 }}>
+                    <Pressable style={{ borderBottomWidth: 1, padding: 10, paddingTop: 10 }}>
+                        <Text style={{ fontSize: 14 }}>Thêm từ vựng</Text>
+                    </Pressable>
+
+                    <Pressable
+                        onPress={async () => {
+                            try {
+                                await getAPIDangKyVip();
+                                handleSortData();
+                            } catch (error) {
+                                console.error("Error:", error);
+                            }
+                        }}
+                        style={{ padding: 10, paddingTop: 10 }}>
+                        <Text style={{ fontSize: 14 }}>{sort ? "Sắp xếp A-Z" : "Sắp xếp mới nhất"}</Text>
+                    </Pressable>
+
+                </View>
+
+            </Modal>
         </View>
     );
 }
