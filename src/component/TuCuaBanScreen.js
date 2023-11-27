@@ -46,7 +46,11 @@ export default function TuCuaBanScreen() {
     }
 
     const getAPIDangKyVip2 = async () => {
-        const url = "http://localhost:3000/dataTuCuaBan2";
+        const urlTime = "http://localhost:3000/dataTuCuaBan2";
+
+        const urlAZ = "http://localhost:3000/dataTuCuaBan2?_sort=title&_order=asc";
+
+        const url = sort ? urlTime : urlAZ;
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
@@ -69,7 +73,7 @@ export default function TuCuaBanScreen() {
     }
 
     const handleSortData = async () => {
-        setSort((prevSort) => !prevSort);
+        setSort(!sort);
     };
 
     return (
@@ -187,7 +191,12 @@ export default function TuCuaBanScreen() {
                     <Pressable
                         onPress={async () => {
                             try {
-                                await getAPIDangKyVip();
+                                if (boolData == true) {
+                                    await getAPIDangKyVip();
+                                }
+                                else {
+                                    await getAPIDangKyVip2();
+                                }
                                 handleSortData();
                             } catch (error) {
                                 console.error("Error:", error);
