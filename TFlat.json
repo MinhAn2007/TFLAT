@@ -1,350 +1,358 @@
 {
-  "dataDangKyVip": [
-    {
-      "id": 1,
-      "title": "Thành viên VIP mãi mãi",
-      "price": 295,
-      "cycle": "Thanh toán một lần dùng mãi mãi"
-    },
-    {
-      "id": 2,
-      "title": "3 Tháng",
-      "price": 65,
-      "cycle": "Thanh toán hằng quý"
-    },
-    {
-      "id": 3,
-      "title": "1 Năm",
-      "price": 195,
-      "cycle": "Thanh toán hằng năm"
-    }
-  ],
-  "dataTuDaTra": [
-    {
-      "title": "speak3",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": true,
-      "id": 1
-    },
-    {
-      "title": "abide2",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "note": true,
-      "id": 2
-    },
-    {
-      "title": "speak5",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": true,
-      "id": 3
-    },
-    {
-      "title": "speak9",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": true,
-      "id": 4
-    },
-    {
-      "title": "abide",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "note": false,
-      "id": 5
-    },
-    {
-      "title": "speak",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": false,
-      "id": 6
-    },
-    {
-      "title": "speak",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": false,
-      "id": 7
-    },
-    {
-      "title": "speak",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": false,
-      "id": 8
-    },
-    {
-      "title": "abide",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "note": false,
-      "id": 9
-    },
-    {
-      "title": "speak",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng, người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng, người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": false,
-      "id": 10
-    }
-  ],
-  "dataTuCuaBan1": [
-    {
-      "title": "speak3",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 1
-    },
-    {
-      "title": "abide2",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "id": 2
-    },
-    {
-      "title": "speak5",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 3
-    },
-    {
-      "title": "speak9",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 4
-    }
-  ],
-  "dataTuCuaBan2": [
-    {
-      "title": "speak2",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 1
-    },
-    {
-      "title": "abide2",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "id": 2
-    },
-    {
-      "title": "speak2",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 3
-    },
-    {
-      "title": "speak2",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 4
-    },
-    {
-      "title": "abide2",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "id": 5
-    },
-    {
-      "title": "speak2",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 6
-    }
-  ],
-  "dataDongTuBatQuyTac": [
-    {
-      "title": "abide",
-      "phonetically": "[ə‘baId]",
-      "translate": "lưu trú, lưu lại",
-      "P": "abided / abode",
-      "PP": "abided",
-      "note": false,
-      "id": 1
-    },
-    {
-      "title": "abide",
-      "phonetically": "[ə‘baId]",
-      "translate": "lưu trú, lưu lại",
-      "P": "abided / abode",
-      "PP": "abided / alit / alighted",
-      "note": false,
-      "id": 2
-    },
-    {
-      "title": "abide",
-      "phonetically": "[ə‘baId]",
-      "translate": "lưu trú, lưu lại",
-      "P": "abided / abode",
-      "PP": "abided",
-      "note": false,
-      "id": 3
-    },
-    {
-      "title": "abide",
-      "phonetically": "[ə‘baId]",
-      "translate": "lưu trú, lưu lại",
-      "P": "abided / abode",
-      "PP": "abided",
-      "note": false,
-      "id": 4
-    }
-  ],
-  "dataTuDienVietAnh": [
-    {
-      "title": "Chính xác",
-      "id": 1
-    },
-    {
-      "title": "Ngon miệng",
-      "id": 2
-    },
-    {
-      "title": "Trong lành",
-      "id": 3
-    },
-    {
-      "title": "Dự báo",
-      "id": 4
-    },
-    {
-      "title": "Mùa màng",
-      "id": 5
-    },
-    {
-      "title": "Món ăn",
-      "id": 6
-    },
-    {
-      "title": "Hiện đại",
-      "id": 7
-    }
-  ],
-  "dataUngDungHocTiengAnhKhac": [
-    {
-      "title": "Học tiếng Anh hằng ngày",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh1_x3pep4.jpg",
-      "content": [
-        {
-          "content1": ". Ghi lại giọng nói và kiểm tra xem nó có đúng hay không.",
-          "content2": ". Chơi trò chơi từ vựng",
-          "content3": ". Học bằng nhiều video hữu ích"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "title": "Học ngữ pháp tiếng Anh ",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh2_iygymi.jpg",
-      "content": [
-        {
-          "content1": ". Chủ đề đa dạng, dùng offline",
-          "content2": ". Nhiều bài tập trắc nghiệm, cho phép tra từ điển TFlat trong app.",
-          "content3": ". Nhiều danh ngôn, thành ngữ, truyện cười khác"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "title": "Bài giải hay SGK, Sách bài tập",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh3_cronyv.jpg",
-      "content": [
-        {
-          "content1": "Không cần mua sách giải, sách bài tập, sách giáo khoa nữa. Đã có app SGK cho phép bạn tra bài học, bài giải một cách nhanh chóng.",
-          "content2": "Không cần mạng Internet, bạn có thể tra mọi bài giải mọi lúc mọi nơi."
-        }
-      ],
-      "id": 3
-    },
-    {
-      "title": "Học tiếng Anh với BiBo",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh4_gozbmi.jpg",
-      "content": [
-        {
-          "content1": "BiBo Speak English là phần mềm học tiếng Anh được thiết kế thân thiện cho trẻ em để học nói tiếng Anh theo phương pháp tương tác trực quan.",
-          "content2": "* Mỗi bài học bao gồm lượng từ vựng vừa phải, kèm theo âm thanh rõ ràng và hình ảnh dễ thương sinh động giúp bé ghi nhớ tốt hơn.",
-          "content3": "* Giúp bé có thể tự học mà không cần nhiều sự hỗ trợ của phụ huynh."
-        }
-      ],
-      "id": 4
-    },
-    {
-      "title": "Luyện thi TOEIC",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh5_c0pslb.jpg",
-      "content": [
-        {
-          "content1": "Hơn 20 bộ đề thi TOEIC, bao gồm đầy đủ tất cả các phần của một đề thi TOEIC.",
-          "content2": "* Sử dụng OFFLINE.",
-          "content3": "* Âm thanh, hình ảnh rõ ràng.",
-          "content4": "* Đặc biệt cho phép bạn tra từ điển TFlat ngay trong phần mềm bằng cách click lên bất kỳ từ vựng nào bạn muốn tra nghĩa của nó."
-        }
-      ],
-      "id": 5
-    },
-    {
-      "title": "Học Phát âm Tiếng Anh",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491867/TFlat/anh6_jtbvry.jpg",
-      "content": [
-        {
-          "content1": "Học phát âm là phần căn bản nhất của việc học tiếng Anh.",
-          "content2": "Phần mềm này rất phù hợp cho những bạn đã mất căn bản và những bạn mới bắt đầu học tiếng Anh.",
-          "content3": "Luyện tập đầy đủ các kỹ năng nghe, đọc, viết các phiên âm tiếng Anh."
-        }
-      ],
-      "id": 6
-    },
-    {
-      "title": "Game luyện từ vựng TOEIC",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh7_sbcsd7.jpg",
-      "content": [
-        {
-          "content1": "Chơi game luyện từ vựng TOEIC.",
-          "content2": "Tổng hợp đầy đủ 600 từ vựng phổ biến trong các đề thi TOEIC.",
-          "content3": "Có giải nghĩa, phát âm, ví dụ và tra từ điển Anh Việt TFLAT trực tiếp trong phần mềm."
-        }
-      ],
-      "id": 7
-    },
-    {
-      "title": "Học từ vựng Tiếng Anh",
-      "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh8_jvz3mn.jpg",
-      "content": [
-        {
-          "content1": "Học từng vựng bằng cách chơi game.",
-          "content2": "Tổng hợp đầy đủ tất cả từ vựng từ lớp 6 đến lớp 12 và 600 từ vựng để luyện thi TOEIC.",
-          "content3": "Có chức năng kiểm tra giọng đọc cực hay! Phát triển bởi TFLAT"
-        }
-      ],
-      "id": 8
-    }
-  ],
-  "dataDichVanBan": [
-    {
-      "title": "giỏ hàng",
-      "trans": "cart",
-      "note": true,
-      "id": 1
-    },
-    {
-      "title": "condependency",
-      "trans": "sự phụ thuộc",
-      "note": false,
-      "id": 2
-    },
-    {
-      "title": "Ẩm ướt",
-      "trans": "wet",
-      "note": true,
-      "id": 3
-    },
-    {
-      "title": "bị chặn",
-      "trans": "blocked",
-      "note": false,
-      "id": 4
-    }
-  ]
-}
+    "dataDangKyVip": [
+      {
+        "id": 1,
+        "title": "Thành viên VIP mãi mãi",
+        "price": 295,
+        "cycle": "Thanh toán một lần dùng mãi mãi"
+      },
+      {
+        "id": 2,
+        "title": "3 Tháng",
+        "price": 65,
+        "cycle": "Thanh toán hằng quý"
+      },
+      {
+        "id": 3,
+        "title": "1 Năm",
+        "price": 195,
+        "cycle": "Thanh toán hằng năm"
+      }
+    ],
+    "dataTuDaTra": [
+      {
+        "title": "speak3",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": true,
+        "id": 1
+      },
+      {
+        "title": "abide2",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "note": true,
+        "id": 2
+      },
+      {
+        "title": "speak5",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": true,
+        "id": 3
+      },
+      {
+        "title": "speak9",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": false,
+        "id": 4
+      },
+      {
+        "title": "abide",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "note": false,
+        "id": 5
+      },
+      {
+        "title": "speak",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": false,
+        "id": 6
+      },
+      {
+        "title": "speak",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": false,
+        "id": 7
+      },
+      {
+        "title": "speak",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": false,
+        "id": 8
+      },
+      {
+        "title": "abide",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "note": false,
+        "id": 9
+      },
+      {
+        "title": "speak",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng, người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng, người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "note": false,
+        "id": 10
+      }
+    ],
+    "dataTuCuaBan1": [
+      {
+        "title": "speak2",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "id": 1
+      },
+      {
+        "title": "abide2",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "id": 2,
+        "note": true
+      },
+      {
+        "title": "speak2",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "id": 3,
+        "note": true
+      },
+      {
+        "title": "abide2",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "id": 4
+      },
+      {
+        "title": "abide2",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "id": 5
+      }
+    ],
+    "dataTuCuaBan2": [
+      {
+        "title": "speak2",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "id": 1
+      },
+      {
+        "title": "abide2",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "id": 2
+      },
+      {
+        "title": "speak2",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "id": 3
+      },
+      {
+        "title": "speak2",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "id": 4
+      },
+      {
+        "title": "abide2",
+        "phonetically": "[ə‘baId]",
+        "translate": "tôn trọng, tuân theo",
+        "id": 5
+      },
+      {
+        "title": "speak2",
+        "phonetically": "[‘spi:kə(r)]",
+        "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+        "id": 6
+      }
+    ],
+    "dataDongTuBatQuyTac": [
+      {
+        "title": "abide",
+        "phonetically": "[ə‘baId]",
+        "translate": "lưu trú, lưu lại",
+        "P": "abided / abode",
+        "PP": "abided",
+        "note": false,
+        "id": 1
+      },
+      {
+        "title": "abide",
+        "phonetically": "[ə‘baId]",
+        "translate": "lưu trú, lưu lại",
+        "P": "abided / abode",
+        "PP": "abided / alit / alighted",
+        "note": false,
+        "id": 2
+      },
+      {
+        "title": "abide",
+        "phonetically": "[ə‘baId]",
+        "translate": "lưu trú, lưu lại",
+        "P": "abided / abode",
+        "PP": "abided",
+        "note": false,
+        "id": 3
+      },
+      {
+        "title": "abide",
+        "phonetically": "[ə‘baId]",
+        "translate": "lưu trú, lưu lại",
+        "P": "abided / abode",
+        "PP": "abided",
+        "note": false,
+        "id": 4
+      }
+    ],
+    "dataTuDienVietAnh": [
+      {
+        "title": "Chính xác",
+        "id": 1
+      },
+      {
+        "title": "Ngon miệng",
+        "id": 2
+      },
+      {
+        "title": "Trong lành",
+        "id": 3
+      },
+      {
+        "title": "Dự báo",
+        "id": 4
+      },
+      {
+        "title": "Mùa màng",
+        "id": 5
+      },
+      {
+        "title": "Món ăn",
+        "id": 6
+      },
+      {
+        "title": "Hiện đại",
+        "id": 7
+      }
+    ],
+    "dataUngDungHocTiengAnhKhac": [
+      {
+        "title": "Học tiếng Anh hằng ngày",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh1_x3pep4.jpg",
+        "content": [
+          {
+            "content1": ". Ghi lại giọng nói và kiểm tra xem nó có đúng hay không.",
+            "content2": ". Chơi trò chơi từ vựng",
+            "content3": ". Học bằng nhiều video hữu ích"
+          }
+        ],
+        "id": 1
+      },
+      {
+        "title": "Học ngữ pháp tiếng Anh ",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh2_iygymi.jpg",
+        "content": [
+          {
+            "content1": ". Chủ đề đa dạng, dùng offline",
+            "content2": ". Nhiều bài tập trắc nghiệm, cho phép tra từ điển TFlat trong app.",
+            "content3": ". Nhiều danh ngôn, thành ngữ, truyện cười khác"
+          }
+        ],
+        "id": 2
+      },
+      {
+        "title": "Bài giải hay SGK, Sách bài tập",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh3_cronyv.jpg",
+        "content": [
+          {
+            "content1": "Không cần mua sách giải, sách bài tập, sách giáo khoa nữa. Đã có app SGK cho phép bạn tra bài học, bài giải một cách nhanh chóng.",
+            "content2": "Không cần mạng Internet, bạn có thể tra mọi bài giải mọi lúc mọi nơi."
+          }
+        ],
+        "id": 3
+      },
+      {
+        "title": "Học tiếng Anh với BiBo",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh4_gozbmi.jpg",
+        "content": [
+          {
+            "content1": "BiBo Speak English là phần mềm học tiếng Anh được thiết kế thân thiện cho trẻ em để học nói tiếng Anh theo phương pháp tương tác trực quan.",
+            "content2": "* Mỗi bài học bao gồm lượng từ vựng vừa phải, kèm theo âm thanh rõ ràng và hình ảnh dễ thương sinh động giúp bé ghi nhớ tốt hơn.",
+            "content3": "* Giúp bé có thể tự học mà không cần nhiều sự hỗ trợ của phụ huynh."
+          }
+        ],
+        "id": 4
+      },
+      {
+        "title": "Luyện thi TOEIC",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh5_c0pslb.jpg",
+        "content": [
+          {
+            "content1": "Hơn 20 bộ đề thi TOEIC, bao gồm đầy đủ tất cả các phần của một đề thi TOEIC.",
+            "content2": "* Sử dụng OFFLINE.",
+            "content3": "* Âm thanh, hình ảnh rõ ràng.",
+            "content4": "* Đặc biệt cho phép bạn tra từ điển TFlat ngay trong phần mềm bằng cách click lên bất kỳ từ vựng nào bạn muốn tra nghĩa của nó."
+          }
+        ],
+        "id": 5
+      },
+      {
+        "title": "Học Phát âm Tiếng Anh",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491867/TFlat/anh6_jtbvry.jpg",
+        "content": [
+          {
+            "content1": "Học phát âm là phần căn bản nhất của việc học tiếng Anh.",
+            "content2": "Phần mềm này rất phù hợp cho những bạn đã mất căn bản và những bạn mới bắt đầu học tiếng Anh.",
+            "content3": "Luyện tập đầy đủ các kỹ năng nghe, đọc, viết các phiên âm tiếng Anh."
+          }
+        ],
+        "id": 6
+      },
+      {
+        "title": "Game luyện từ vựng TOEIC",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491866/TFlat/anh7_sbcsd7.jpg",
+        "content": [
+          {
+            "content1": "Chơi game luyện từ vựng TOEIC.",
+            "content2": "Tổng hợp đầy đủ 600 từ vựng phổ biến trong các đề thi TOEIC.",
+            "content3": "Có giải nghĩa, phát âm, ví dụ và tra từ điển Anh Việt TFLAT trực tiếp trong phần mềm."
+          }
+        ],
+        "id": 7
+      },
+      {
+        "title": "Học từ vựng Tiếng Anh",
+        "imgUrl": "https://res.cloudinary.com/df1iihqft/image/upload/v1700491865/TFlat/anh8_jvz3mn.jpg",
+        "content": [
+          {
+            "content1": "Học từng vựng bằng cách chơi game.",
+            "content2": "Tổng hợp đầy đủ tất cả từ vựng từ lớp 6 đến lớp 12 và 600 từ vựng để luyện thi TOEIC.",
+            "content3": "Có chức năng kiểm tra giọng đọc cực hay! Phát triển bởi TFLAT"
+          }
+        ],
+        "id": 8
+      }
+    ],
+    "dataDichVanBan": [
+      {
+        "title": "giỏ hàng",
+        "trans": "cart",
+        "note": true,
+        "id": 1
+      },
+      {
+        "title": "condependency",
+        "trans": "sự phụ thuộc",
+        "note": false,
+        "id": 2
+      },
+      {
+        "title": "Ẩm ướt",
+        "trans": "wet",
+        "note": true,
+        "id": 3
+      },
+      {
+        "title": "bị chặn",
+        "trans": "blocked",
+        "note": false,
+        "id": 4
+      }
+    ]
+  }

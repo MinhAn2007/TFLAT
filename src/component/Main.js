@@ -102,6 +102,9 @@ const Main = () => {
       id: 10,
       text: "Dịch văn bản",
       image: require("/assets/contact.png"),
+      handle: () => {
+        navigate.navigate("DichVanBanScreen");
+      },
     },
     {
       id: 11,
