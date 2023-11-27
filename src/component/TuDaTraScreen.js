@@ -30,49 +30,53 @@ export default function TuDaTraScreen() {
     }
 
     const saveAPITuDaTra = async (data) => {
+        try {
+            const url = "http://localhost:3000/dataTuCuaBan1";
+            let result = await fetch(url, {
+                method: "POST",
+                headers: { 'Accept': 'application/json, text/plain, */*', "Content-Type": "application/json" },
+                body: JSON.stringify({ title: data.title, phonetically: data.phonetically, translate: data.translate, id: data.id })
+            });
+            result = await result.json();
 
-        const url = "http://localhost:3000/dataTuCuaBan1";
-        let result = await fetch(url, {
-            method: "POST",
-            headers: { 'Accept': 'application/json, text/plain, */*', "Content-Type": "application/json" },
-            body: JSON.stringify({ title: data.title, phonetically: data.phonetically, translate: data.translate, id: data.id })
-        });
-        result = await result.json();
-        if (result) {
-            alert("sucess" + data.title + data.phonetically)
-        } else {
+        } catch (error) {
+            console.error("Save API error:", error);
             alert("Error");
         }
-    }
+    };
 
     const patchAPITuDaTra = async (data, starAPI) => {
-
-        const url = "http://localhost:3000/dataTuDaTra";
-        let result = await fetch(`${url}/${data}`, {
-            method: 'PATCH',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ note: starAPI })
-        });
-        result = await result.json();
-        if (result) {
-            getAPIDangKyVip()
-        } else {
+        try {
+            const url = "http://localhost:3000/dataTuDaTra";
+            let result = await fetch(`${url}/${data}`, {
+                method: 'PATCH',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ note: starAPI })
+            });
+            result = await result.json();
+            if (result) {
+                getAPIDangKyVip();
+                alert("Patch success")
+            }
+        } catch (error) {
+            console.error("Patch API error:", error);
             alert("Error");
         }
-    }
+    };
 
     const deleteAPITuDaTra = async (id) => {
-        const url = "http://localhost:3000/dataTuCuaBan1/" + id;
-        let result = await fetch(url, {
-            method: "DELETE",
-        });
-        result = await result.json();
-        if (result) {
-            alert("Data delete success");
-        } else {
+        try {
+            const url = "http://localhost:3000/dataTuCuaBan1/" + id;
+            let result = await fetch(url, {
+                method: "DELETE",
+            });
+            result = await result.json();
+
+        } catch (error) {
+            console.error("Delete API error:", error);
             alert("Error");
         }
-    }
+    };
 
     const searchAPI = async (text) => {
 
@@ -129,18 +133,18 @@ export default function TuDaTraScreen() {
 
 
                                 <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}
-                                    onPress={() => {
-                                        patchAPITuDaTra(item.id, true)
+                                    onPress={async () => {
+                                        await patchAPITuDaTra(item.id, true)
 
-                                        //saveAPITuDaTra(item)
+                                        await saveAPITuDaTra(item)
                                     }}
                                 />
 
                                 <AntDesign name="star" size={30} style={{ ...item.note ? styles.buttonPress2 : styles.buttonPress }}
-                                    onPress={() => {
-                                        patchAPITuDaTra(item.id, false)
+                                    onPress={async () => {
+                                        await patchAPITuDaTra(item.id, false)
 
-                                        //deleteAPITuDaTra(item.id)
+                                        await deleteAPITuDaTra(item.id)
                                     }}
                                 />
 

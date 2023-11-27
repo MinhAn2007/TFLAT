@@ -38,7 +38,7 @@
       "title": "speak5",
       "phonetically": "[‘spi:kə(r)]",
       "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "note": true,
+      "note": false,
       "id": 3
     },
     {
@@ -100,36 +100,16 @@
   ],
   "dataTuCuaBan1": [
     {
-      "title": "speak1",
+      "title": "speak3",
       "phonetically": "[‘spi:kə(r)]",
       "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
       "id": 1
     },
     {
-      "title": "abide1",
+      "title": "abide2",
       "phonetically": "[ə‘baId]",
       "translate": "tôn trọng, tuân theo",
-      "id": 2,
-      "note": true
-    },
-    {
-      "title": "speak1",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 3,
-      "note": true
-    },
-    {
-      "title": "abide1",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "id": 4
-    },
-    {
-      "title": "abide1",
-      "phonetically": "[ə‘baId]",
-      "translate": "tôn trọng, tuân theo",
-      "id": 5
+      "id": 2
     }
   ],
   "dataTuCuaBan2": [
