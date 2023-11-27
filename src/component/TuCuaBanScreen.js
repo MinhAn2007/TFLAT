@@ -10,15 +10,24 @@ export default function TuCuaBanScreen() {
     var [data, setData] = useState([]);
     const [isSelected, setSelection] = useState(false);
 
-    var [boolData1, setBoolData1] = useState(true)
-    var [boolData2, setBoolData2] = useState(false)
+    var [boolData, setBoolData] = useState(true)
 
     useEffect(() => {
         getAPIDangKyVip()
     }, []);
 
     const getAPIDangKyVip = async () => {
-        const url = "http://localhost:3000/dataTuDaTra";
+        const url = "http://localhost:3000/dataTuCuaBan1";
+        fetch(url)
+            .then((response) => response.json())
+            .then((json) => {
+                setData(json);
+            });
+    }
+
+    const searchAPI = async (text) => {
+
+        const url = `http://localhost:3000/dataTuCuaBan1?q=${text}`;
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
@@ -27,7 +36,17 @@ export default function TuCuaBanScreen() {
     }
 
     const getAPIDangKyVip2 = async () => {
-        const url = "http://localhost:3000/dataTuDaTra2";
+        const url = "http://localhost:3000/dataTuCuaBan2";
+        fetch(url)
+            .then((response) => response.json())
+            .then((json) => {
+                setData(json);
+            });
+    }
+
+    const searchAPI2 = async (text) => {
+
+        const url = `http://localhost:3000/dataTuCuaBan2?q=${text}`;
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
@@ -40,7 +59,7 @@ export default function TuCuaBanScreen() {
             <View style={styles.head}>
                 <View style={styles.head1}>
                     <Pressable onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
+                        <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                     <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Từ của bạn ({data.length})</Text>
                     <FontAwesome name="folder-open" size={25} style={{ color: 'white', left: 130 }} />
                     <Ionicons name="reorder-three-outline" size={35} style={{ color: 'white', left: 150 }} />
@@ -50,11 +69,10 @@ export default function TuCuaBanScreen() {
                     <Pressable
                         onPress={() => {
                             getAPIDangKyVip(),
-                            setBoolData1(true),
-                            setBoolData2(false)
+                                setBoolData(true)
                         }}
                         style={{
-                            ...boolData1 ? styles.buttonPress : styles.button, width: '130px',
+                            ...boolData ? styles.buttonPress : styles.button, width: '130px',
                             height: '100%', marginRight: 15, alignItems: 'center'
                         }}
                     >
@@ -63,10 +81,9 @@ export default function TuCuaBanScreen() {
                     <Pressable
                         onPress={() => {
                             getAPIDangKyVip2(),
-                            setBoolData1(false),
-                            setBoolData2(true)
+                                setBoolData(false)
                         }} style={{
-                            ...boolData2 ? styles.buttonPress : styles.button, width: '130px',
+                            ...boolData ? styles.button : styles.buttonPress, width: '130px',
                             height: '100%', marginRight: 15, alignItems: 'center'
                         }}>
                         <Text style={styles.text}>TỪ ĐANG HỌC</Text>
@@ -83,6 +100,7 @@ export default function TuCuaBanScreen() {
                 <TextInput
                     style={styles.input}
                     placeholder="Tìm từ trong danh mục"
+                    onChangeText={(text) => boolData ? searchAPI(text) : searchAPI2(text)}
                 />
 
             </View>
@@ -107,7 +125,7 @@ export default function TuCuaBanScreen() {
                             <View style={{ flexDirection: 'row', alignItems: 'center', top: 10 }}>
                                 <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
                                 <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
-                                <Entypo name="dots-three-vertical" size={30} style={{color:"#898181"}} />
+                                <Entypo name="dots-three-vertical" size={30} style={{ color: "#898181" }} />
                             </View>
                         </View>
 

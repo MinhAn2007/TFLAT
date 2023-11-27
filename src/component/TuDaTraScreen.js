@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, TextInput, CheckBox, ScrollView, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
+//npx json-server --watch TFlat.json
+
 export default function TuDaTraScreen() {
     const navigation = useNavigation();
     var [data, setData] = useState([]);
     const [isSelected, setSelection] = useState(false);
-
-    var [star, setStar] = useState(false)
 
     var [title, setTitle] = useState("")
     var [phonetically, setPhonetically] = useState("")
@@ -35,25 +35,24 @@ export default function TuDaTraScreen() {
         let result = await fetch(url, {
             method: "POST",
             headers: { 'Accept': 'application/json, text/plain, */*', "Content-Type": "application/json" },
-            body: JSON.stringify({ title: data.title, phonetically: data.phonetically, translate: data.translate })
+            body: JSON.stringify({ title: data.title, phonetically: data.phonetically, translate: data.translate, id: data.id })
         });
         result = await result.json();
         if (result) {
-            getAPIDangKyVip()
             alert("sucess" + data.title + data.phonetically)
         } else {
             alert("Error");
         }
     }
 
-    const patchAPITuDaTra = async (data) => {
+    const patchAPITuDaTra = async (data, starAPI) => {
 
         const url = "http://localhost:3000/dataTuDaTra";
         let result = await fetch(`${url}/${data}`, {
-                method: 'PATCH',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ note: star })
-            });
+            method: 'PATCH',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ note: starAPI })
+        });
         result = await result.json();
         if (result) {
             getAPIDangKyVip()
@@ -75,11 +74,23 @@ export default function TuDaTraScreen() {
         }
     }
 
+    const searchAPI = async (text) => {
+
+        const url = `http://localhost:3000/dataTuDaTra?q=${text}`;
+        fetch(url)
+            .then((response) => response.json())
+            .then((json) => {
+                setData(json);
+            });
+    }
+
+
+
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-            <Pressable onPress={() => navigation.goBack()}>
-                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
+                <Pressable onPress={() => navigation.goBack()}>
+                    <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                 <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Từ đã tra ({data.length})</Text>
             </View>
 
@@ -90,6 +101,7 @@ export default function TuDaTraScreen() {
                 <TextInput
                     style={styles.input}
                     placeholder="Tìm từ trong danh mục"
+                    onChangeText={(text) => searchAPI(text)}
                 />
 
             </View>
@@ -115,24 +127,23 @@ export default function TuDaTraScreen() {
                                 <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
                                 <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
 
+
                                 <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}
                                     onPress={() => {
-                                        setStar(true)
-                                        patchAPITuDaTra(item.id)
+                                        patchAPITuDaTra(item.id, true)
 
-                                        saveAPITuDaTra(item)
-
+                                        //saveAPITuDaTra(item)
                                     }}
                                 />
 
                                 <AntDesign name="star" size={30} style={{ ...item.note ? styles.buttonPress2 : styles.buttonPress }}
                                     onPress={() => {
-                                        setStar(false)
-                                        patchAPITuDaTra(item.id)
+                                        patchAPITuDaTra(item.id, false)
 
                                         //deleteAPITuDaTra(item.id)
                                     }}
                                 />
+
                             </View>
                         </View>
 
