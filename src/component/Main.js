@@ -261,7 +261,7 @@ const Main = () => {
             name="search"
             size={20}
             color='red'
-            style={{ marginLeft: -160,marginTop:-30,position:'flex',zIndex:1,color:'grey'}}
+            style={{ marginLeft: -160,marginTop:-30,position:'flex',zIndex:1,color:'grey',width:20,height:20}}
           />
         </TouchableOpacity>
         <Icon
