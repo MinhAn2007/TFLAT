@@ -13,6 +13,8 @@ export default function DichVanBanScreen() {
     const [translatedText, setTranslatedTextdata] = useState("");
     const [searchText, setSearchText] = useState("");
 
+    const [boolInput, setBoolInput] = useState(false)
+
     useEffect(() => {
         getAPIDangKyVip()
     }, []);
@@ -26,13 +28,13 @@ export default function DichVanBanScreen() {
             });
     }
 
-    const patchAPITuDaTra = async (data) => {
+    const patchAPITuDaTra = async (data, starAPI) => {
 
         const url = "http://localhost:3000/dataDichVanBan";
         let result = await fetch(`${url}/${data}`, {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ note: star })
+            body: JSON.stringify({ note: starAPI })
         });
         result = await result.json();
         if (result) {
@@ -50,11 +52,11 @@ export default function DichVanBanScreen() {
                     `https://api.mymemory.translated.net/get?q=${text}&langpair=en|vi`
                 );
                 const data = await response.json();
-    
+
                 if (data && data.responseData) {
                     setTranslatedTextdata(data.responseData.translatedText);
-    
-                    const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
+
+                    const saveResponse = await fetch("http://localhost:3000/dataDichVanBan", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -62,12 +64,11 @@ export default function DichVanBanScreen() {
                         body: JSON.stringify({
                             id: Math.floor(Math.random() * 1000) + 1,
                             title: text,
-                            phonetically: null,
-                            translate: data.responseData.translatedText,
-                            not: false,
+                            trans: data.responseData.translatedText,
+                            note: false,
                         }),
                     });
-    
+
                     const saveData = await saveResponse.json();
                     console.log("Saved data:", saveData);
                 }
@@ -75,10 +76,10 @@ export default function DichVanBanScreen() {
                 console.error("Error fetching translation:", error);
             }
         };
-    
+
         fetchTranslation();
     };
-    
+
     const handleSearchVN = (text) => {
         console.log("Searching for:", text);
         const fetchTranslation = async () => {
@@ -87,24 +88,23 @@ export default function DichVanBanScreen() {
                     `https://api.mymemory.translated.net/get?q=${text}&langpair=vi|en`
                 );
                 const data = await response.json();
-    
+
                 if (data && data.responseData) {
                     setTranslatedTextdata(data.responseData.translatedText);
-    
-                    const saveResponse = await fetch("http://localhost:3000/dataTuDaTra", {
+
+                    const saveResponse = await fetch("http://localhost:3000/dataDichVanBan", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
                             id: Math.floor(Math.random() * 1000) + 1,
-                            title: text, 
-                            phonetically: null,
-                            translate: data.responseData.translatedText,
-                            not: false,
+                            title: text,
+                            trans: data.responseData.translatedText,
+                            note: false,
                         }),
                     });
-    
+
                     const saveData = await saveResponse.json();
                     console.log("Saved data:", saveData);
                 }
@@ -112,15 +112,15 @@ export default function DichVanBanScreen() {
                 console.error("Error fetching translation:", error);
             }
         };
-    
+
         fetchTranslation();
     };
 
     return (
         <View style={styles.container}>
             <View style={styles.head}>
-            <Pressable onPress={() => navigation.goBack()}>
-                <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
+                <Pressable onPress={() => navigation.goBack()}>
+                    <Ionicons name="arrow-back" size={30} style={{ color: 'white', left: 20 }} /></Pressable>
                 <Text style={{ fontSize: 20, color: 'white', left: 40 }}>Dịch văn bản</Text>
             </View>
 
@@ -133,17 +133,31 @@ export default function DichVanBanScreen() {
                     onChangeText={setSearchText}
                 />
                 <View style={{ flexDirection: 'column', paddingTop: 7 }}>
-                    <Feather name='x' size={30} style={{ color: '#898181', left: 13 }} />
+                    <Feather name='x' size={30} style={{ color: '#898181', left: 13 }} onPress={() => {
+                        setBoolInput(false),
+                        setSearchText("")
+                    }} />
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 13 }} />
                         <Ionicons name="volume-high" size={20} style={{ color: 'white', right: 12 }} />
                     </View>
-
-
                 </View>
 
             </View>
-            <Text>{translatedText}</Text>
+
+            <View style={{ marginLeft: 20 }}>
+
+                <TextInput
+                    multiline={true}
+                    style={boolInput ? styles.input2 : styles.hiddenInput}
+                    value={translatedText}
+                    editable={false}
+                />
+
+            </View>
+
+
+
 
             <View style={{ width: '90%', height: 40, marginBottom: 30, marginLeft: 10, flexDirection: 'row', alignItems: 'center' }}>
                 <FontAwesome name="square" size={45} style={{ color: '#7A7474', left: 27 }} />
@@ -163,12 +177,19 @@ export default function DichVanBanScreen() {
             </View>
 
             <View style={{ width: '90%', height: 40, marginBottom: 20, marginLeft: 20, flexDirection: 'row', alignItems: 'center' }}>
-            <TouchableOpacity style={styles.btnOnTap} onPress={() => handleSearchVN(searchText)}>
+                <TouchableOpacity style={styles.btnOnTap} onPress={() => {
+                    handleSearchVN(searchText),
+                        setBoolInput(true)
+                }
+                }>
                     <Text style={{ fontSize: 18, color: 'white', fontWeight: 600 }}>Việt - Anh</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.btnOnTap} onPress={() => handleSearch(searchText)}>
-                <Text style={{ fontSize: 18, color: 'white', fontWeight: 600 }}>Anh - Việt</Text>
+                <TouchableOpacity style={styles.btnOnTap} onPress={() => {
+                    handleSearch(searchText),
+                        setBoolInput(true)
+                }}>
+                    <Text style={{ fontSize: 18, color: 'white', fontWeight: 600 }}>Anh - Việt</Text>
                 </TouchableOpacity>
 
             </View>
@@ -188,16 +209,14 @@ export default function DichVanBanScreen() {
 
                             <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}
                                 onPress={() => {
-                                    setStar(true)
-                                    patchAPITuDaTra(item.id)
+                                    patchAPITuDaTra(item.id, true)
 
                                 }}
                             />
 
                             <AntDesign name="star" size={30} style={{ ...item.note ? styles.buttonPress2 : styles.buttonPress }}
                                 onPress={() => {
-                                    setStar(false)
-                                    patchAPITuDaTra(item.id)
+                                    patchAPITuDaTra(item.id, false)
                                 }}
                             />
                         </View>
@@ -258,6 +277,20 @@ const styles = StyleSheet.create({
         padding: 10
     },
 
+    input2: {
+        width: '95%',
+        height: 90,
+        fontSize: 14,
+        borderRadius: 5,
+        backgroundColor: 'white',
+        color: '#585353',
+        outlineStyle: 'none',
+        paddingLeft: 10,
+        textAlignVertical: 'top',
+        padding: 10,
+        marginBottom: 20
+    },
+
     contentVip: {
         width: '90%',
         height: 'auto',
@@ -292,6 +325,11 @@ const styles = StyleSheet.create({
 
     buttonPress2: {
         color: "yellow"
+    },
+
+    hiddenInput: {
+        width: 0,
+        height: 0,
     },
 
 });

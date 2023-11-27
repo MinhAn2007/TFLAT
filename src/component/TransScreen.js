@@ -281,7 +281,7 @@ const TransScreen = () => {
                   title: searchText,
                   phonetically: data[0].phonetics[0].text,
                   translate: keyData.responseData.translatedText,
-                  not: false,
+                  note: false,
                 }),
               }
             );
