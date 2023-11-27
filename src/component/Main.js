@@ -272,7 +272,7 @@ const Main = () => {
         ></Icon>
         <Pressable
           style={{ marginLeft: "-50%", marginTop: "6%" }}
-          onPress={() => alert("q")}
+          onPress={() => alert("Chức năng này đang được phát triển")}
         >
           <View
             style={{
@@ -299,7 +299,7 @@ const Main = () => {
         </Pressable>
         <Pressable
           style={{ marginLeft: "10%", marginTop: "-15.1%" }}
-          onPress={() => alert("q")}
+          onPress={() => alert("Chức năng này đang được phát triển")}
         >
           <View
             style={{
@@ -322,7 +322,7 @@ const Main = () => {
         </Pressable>
         <Pressable
           style={{ marginLeft: "70%", marginTop: "-15.1%" }}
-          onPress={() => alert("q")}
+          onPress={() => alert("Chức năng này đang được phát triển")}
         >
           <View
             style={{

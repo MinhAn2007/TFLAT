@@ -6,6 +6,165 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScrollView } from "react-native-web";
 
+
+const TransScreen = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { searchText } = route.params;
+  const [data, setData] = useState([]);
+  const [translations, setTranslations] = useState([]);
+  const [key, setKey] = useState(null);
+  const [phonetics, setPhonetics] = useState(null);
+
+  useEffect(() => {
+    const fetchTranslation = async () => {
+      try {
+        const keyTran = await fetch(
+          `https://api.mymemory.translated.net/get?q=${searchText}&langpair=en|vi`
+        );
+        const keyData = await keyTran.json();
+        setKey(keyData.responseData.translatedText);
+
+        const response = await fetch(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${searchText}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Error fetching translation: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setData(data[0].meanings);
+
+        console.log(data[0].meanings);
+        if (Array.isArray(data) && data.length > 0) {
+          const translationsArray = [];
+          for (const meaning of data[0].meanings) {
+            for (const definitionObj of meaning.definitions) {
+              const translationResponse = await fetch(
+                `https://api.mymemory.translated.net/get?q=${definitionObj.example}&langpair=en|vi`
+              );
+
+              if (!translationResponse.ok) {
+                throw new Error(
+                  `Error fetching translation: ${translationResponse.status}`
+                );
+              }
+
+              const translationData = await translationResponse.json();
+              if (translationData && translationData.responseData) {
+                translationsArray.push({
+                  definitions: definitionObj.definition,
+                  en: definitionObj.example,
+                  vi: translationData.responseData.translatedText,
+                });
+              }
+            }
+          }
+
+          setTranslations(translationsArray);
+          setPhonetics(data[0].phonetics[0]?.text || null);
+          try {
+            const saveResponse = await fetch(
+              "http://localhost:3000/dataTuDaTra",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  id: Math.floor(Math.random() * 1000) + 1,
+                  title: searchText,
+                  phonetically: data[0].phonetics[0].text,
+                  translate: keyData.responseData.translatedText,
+                  note: false,
+                }),
+              }
+            );
+
+            if (!saveResponse.ok) {
+              throw new Error(`Error saving data: ${saveResponse.status}`);
+            }
+          } catch (saveError) {
+            console.error("Error saving data:", saveError);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchTranslation();
+  }, [searchText]);
+  console.log(translations);
+
+  return (
+    <View>
+      <View style={{ flex: 1 }}>
+        <View style={styles.head}>
+          <Pressable onPress={() => navigation.goBack()}>
+            <Ionicons
+              name="arrow-back"
+              size={30}
+              style={{ color: "white", left: 20, zIndex: 1 }}
+            />
+          </Pressable>
+          <Text style={{ fontSize: 20, color: "white", left: 40 }}>
+            {searchText}
+          </Text>
+          <View
+            style={{
+              marginLeft: 260,
+              position: "absolute",
+              flexDirection: "row",
+            }}
+          >
+            <Icon
+              name="search"
+              size={20}
+              color="white"
+              style={{ marginTop: 10, zIndex: 0 }}
+            />
+            <Image
+              style={{ width: 40, height: 40, marginLeft: 15 }}
+              source={require("/assets/pen.png")}
+            />
+            <Image
+              style={{ width: 35, height: 30, marginLeft: 15, marginTop: 5 }}
+              source={require("/assets/star2.png")}
+            />
+          </View>
+        </View>
+
+        <Tab.Navigator
+          tabBarOptions={{
+            activeTintColor: "white",
+            inactiveTintColor: "#9ca0a6",
+            style: { backgroundColor: "#0052B4", height: 50 },
+            indicatorStyle: { backgroundColor: "white" },
+          }}
+        >
+          <Tab.Screen name="ANH VIỆT">
+            {() => (
+              <AnhVietScreen
+                searchText={searchText}
+                translations={translations}
+                keyText={key}
+                phoneticsText={phonetics}
+              />
+            )}
+          </Tab.Screen>
+          <Tab.Screen name="NGỮ PHÁP">
+            {() => <NguPhapScreen translations={data} />}
+          </Tab.Screen>
+          <Tab.Screen name="ANH ANH">
+            {() => <AnhAnhScreen translations={translations} />}
+          </Tab.Screen>
+        </Tab.Navigator>
+      </View>
+    </View>
+  );
+};
 const AnhVietScreen = ({
   searchText,
   translations,
@@ -210,165 +369,6 @@ const AnhAnhScreen = ({ translations }) => (
 );
 
 const Tab = createMaterialTopTabNavigator();
-
-const TransScreen = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const { searchText } = route.params;
-  const [data, setData] = useState([]);
-  const [translations, setTranslations] = useState([]);
-  const [key, setKey] = useState(null);
-  const [phonetics, setPhonetics] = useState(null);
-
-  useEffect(() => {
-    const fetchTranslation = async () => {
-      try {
-        const keyTran = await fetch(
-          `https://api.mymemory.translated.net/get?q=${searchText}&langpair=en|vi`
-        );
-        const keyData = await keyTran.json();
-        setKey(keyData.responseData.translatedText);
-
-        const response = await fetch(
-          `https://api.dictionaryapi.dev/api/v2/entries/en/${searchText}`
-        );
-
-        if (!response.ok) {
-          throw new Error(`Error fetching translation: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setData(data[0].meanings);
-
-        console.log(data[0].meanings);
-        if (Array.isArray(data) && data.length > 0) {
-          const translationsArray = [];
-          for (const meaning of data[0].meanings) {
-            for (const definitionObj of meaning.definitions) {
-              const translationResponse = await fetch(
-                `https://api.mymemory.translated.net/get?q=${definitionObj.example}&langpair=en|vi`
-              );
-
-              if (!translationResponse.ok) {
-                throw new Error(
-                  `Error fetching translation: ${translationResponse.status}`
-                );
-              }
-
-              const translationData = await translationResponse.json();
-              if (translationData && translationData.responseData) {
-                translationsArray.push({
-                  definitions: definitionObj.definition,
-                  en: definitionObj.example,
-                  vi: translationData.responseData.translatedText,
-                });
-              }
-            }
-          }
-
-          setTranslations(translationsArray);
-          setPhonetics(data[0].phonetics[0]?.text || null);
-          try {
-            const saveResponse = await fetch(
-              "http://localhost:3000/dataTuDaTra",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  id: Math.floor(Math.random() * 1000) + 1,
-                  title: searchText,
-                  phonetically: data[0].phonetics[0].text,
-                  translate: keyData.responseData.translatedText,
-                  note: false,
-                }),
-              }
-            );
-
-            if (!saveResponse.ok) {
-              throw new Error(`Error saving data: ${saveResponse.status}`);
-            }
-          } catch (saveError) {
-            console.error("Error saving data:", saveError);
-          }
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchTranslation();
-  }, [searchText]);
-  console.log(translations);
-
-  return (
-    <View>
-      <View style={{ flex: 1 }}>
-        <View style={styles.head}>
-          <Pressable onPress={() => navigation.goBack()}>
-            <Ionicons
-              name="arrow-back"
-              size={30}
-              style={{ color: "white", left: 20, zIndex: 1 }}
-            />
-          </Pressable>
-          <Text style={{ fontSize: 20, color: "white", left: 40 }}>
-            {searchText}
-          </Text>
-          <View
-            style={{
-              marginLeft: 260,
-              position: "absolute",
-              flexDirection: "row",
-            }}
-          >
-            <Icon
-              name="search"
-              size={20}
-              color="white"
-              style={{ marginTop: 10, zIndex: 0 }}
-            />
-            <Image
-              style={{ width: 40, height: 40, marginLeft: 15 }}
-              source={require("/assets/pen.png")}
-            />
-            <Image
-              style={{ width: 35, height: 30, marginLeft: 15, marginTop: 5 }}
-              source={require("/assets/star2.png")}
-            />
-          </View>
-        </View>
-
-        <Tab.Navigator
-          tabBarOptions={{
-            activeTintColor: "white",
-            inactiveTintColor: "#9ca0a6",
-            style: { backgroundColor: "#0052B4", height: 50 },
-            indicatorStyle: { backgroundColor: "white" },
-          }}
-        >
-          <Tab.Screen name="ANH VIỆT">
-            {() => (
-              <AnhVietScreen
-                searchText={searchText}
-                translations={translations}
-                keyText={key}
-                phoneticsText={phonetics}
-              />
-            )}
-          </Tab.Screen>
-          <Tab.Screen name="NGỮ PHÁP">
-            {() => <NguPhapScreen translations={data} />}
-          </Tab.Screen>
-          <Tab.Screen name="ANH ANH">
-            {() => <AnhAnhScreen translations={translations} />}
-          </Tab.Screen>
-        </Tab.Navigator>
-      </View>
-    </View>
-  );
-};
 
 const styles = {
   head: {
