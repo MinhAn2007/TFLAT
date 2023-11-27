@@ -114,7 +114,7 @@ const AnhVietScreen = ({
         ></Image>{" "}
         <Text
           style={{
-            fontSize: 18,
+            fontSize: 24,
             marginTop: -30,
             fontWeight: "bold",
             color: "#D277D2",
@@ -127,12 +127,19 @@ const AnhVietScreen = ({
           <View
             style={{ flexDirection: "column", marginLeft: 10, marginTop: 10 }}
           >
-            {translations.map((translation, index) => (
-              <View key={index} style={{ marginRight: 20 }}>
-                <Text style={{ fontWeight: "bold" }}>{translation.en}:</Text>
-                <Text>{translation.vi}</Text>
-              </View>
-            ))}
+            {translations.map(
+              (translation, index) => (
+                console.log(translations),
+                translation.en != undefined && (
+                  <View key={index} style={{ marginRight: 20 }}>
+                    <Text style={{ fontWeight: "bold" }}>
+                      {translation.en}:
+                    </Text>
+                    <Text>{translation.vi}</Text>
+                  </View>
+                )
+              )
+            )}
           </View>
         </View>
       </View>
@@ -150,19 +157,27 @@ const NguPhapScreen = ({ translations }) => (
             (console.log(translation.synonyms),
             (
               <View style={{ flexDirection: "column" }}>
-                <Text style={{ fontWeight: "bold" ,fontSize:24,}}>Synonyms:</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 24 }}>
+                  Synonyms:
+                </Text>
 
-                <Text style={{fontSize:20}}>{` ${translation.synonyms.join(", ")}`}</Text>
+                <Text style={{ fontSize: 20 }}>{` ${translation.synonyms.join(
+                  ", "
+                )}`}</Text>
               </View>
             ))}
           {translation.antonyms.length > 0 &&
             translation.antonyms !== undefined &&
             (console.log(translation.antonyms),
             (
-              <View style={{ flexDirection: "column" ,marginTop:40 }}>
-                <Text style={{ fontWeight: "bold",fontSize:24 }}>Antonyms:</Text>
+              <View style={{ flexDirection: "column", marginTop: 40 }}>
+                <Text style={{ fontWeight: "bold", fontSize: 24 }}>
+                  Antonyms:
+                </Text>
 
-                <Text style={{fontSize:20}}>{`${translation.antonyms.join(", ")}`}</Text>
+                <Text style={{ fontSize: 20 }}>{`${translation.antonyms.join(
+                  ", "
+                )}`}</Text>
               </View>
             ))}
           <Text>{"\n"}</Text>
@@ -174,20 +189,25 @@ const NguPhapScreen = ({ translations }) => (
 
 const AnhAnhScreen = ({ translations }) => (
   <View>
-    <View style={{ flexDirection: "column", marginTop: 20 ,marginHorizontal:10 }}>
-    <Text style={{ marginLeft: 10,fontSize:24,fontWeight: "bold" }}>Definitions:</Text>
+    <View
+      style={{ flexDirection: "column", marginTop: 20, marginHorizontal: 10 }}
+    >
+      <Text style={{ marginLeft: 10, fontSize: 24, fontWeight: "bold" }}>
+        Definitions:
+      </Text>
 
       {translations.map((translation, index) => (
-        <View key={index} >
-          <View style={styles.definitionContainer}>
-            <Text style={{fontWeight:18,fontWeight: "bold",marginTop:20}}>{`${index + 1}. ${translation.definitions}`}</Text>
+        <View key={index}>
+          <View>
+            <Text
+              style={{ fontWeight: 18, fontWeight: "bold", marginTop: 20 }}
+            >{`${index + 1}. ${translation.definitions}`}</Text>
           </View>
         </View>
       ))}
     </View>
   </View>
 );
-
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -236,16 +256,9 @@ const TransScreen = () => {
               }
 
               const translationData = await translationResponse.json();
-              if (
-                translationData &&
-                translationData.responseData &&
-                definitionObj.example != null &&
-                definitionObj.example != undefined &&
-                definitionObj.example != ""
-              ) {
+              if (translationData && translationData.responseData) {
                 translationsArray.push({
                   definitions: definitionObj.definition,
-                  synonyms: definitionObj.synonyms,
                   en: definitionObj.example,
                   vi: translationData.responseData.translatedText,
                 });
@@ -255,7 +268,6 @@ const TransScreen = () => {
 
           setTranslations(translationsArray);
           setPhonetics(data[0].phonetics[0]?.text || null);
-
           try {
             const saveResponse = await fetch(
               "http://localhost:3000/dataTuDaTra",
@@ -288,6 +300,7 @@ const TransScreen = () => {
 
     fetchTranslation();
   }, [searchText]);
+  console.log(translations);
 
   return (
     <View>
