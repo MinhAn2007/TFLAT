@@ -107,12 +107,6 @@
   ],
   "dataTuCuaBan1": [
     {
-      "title": "speak3",
-      "phonetically": "[‘spi:kə(r)]",
-      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
-      "id": 1
-    },
-    {
       "title": "abide2",
       "phonetically": "[ə‘baId]",
       "translate": "tôn trọng, tuân theo",
@@ -135,6 +129,27 @@
       "phonetically": "[‘spi:kə(r)]",
       "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
       "id": 3
+    },
+    {
+      "title": "Tôi có bài kiểm tra",
+      "translate": "I have a quiz",
+      "id": 342
+    },
+    {
+      "title": "check check",
+      "translate": "Kiểm tra lại đi.",
+      "id": 99
+    },
+    {
+      "title": "My favorite food is grilled meat. It's great and delicious. Whether it's beef, pork or chicken, I love it all. I like to merinate meat with a mixture of fish sauce, sugar, garlic and lemongrass before grilling.\n\nGrilled meat is not only delicious, but it's also a great source of protein. I love to pair my grilled meat with fresh vegetables and a side of rice or potatoes.",
+      "translate": "Món ăn yêu thích của tôi là thịt nướng. Thật tuyệt vời và ngon miệng. Cho dù đó là thịt bò, thịt lợn hay thịt gà, tôi yêu tất cả. Tôi thích trộn thịt với hỗn hợp nước mắm, đường, tỏi và sả trước khi nướng. Thịt nướng không chỉ ngon mà còn là một nguồn protein tuyệt vời. Tôi thích ghép thịt nướng của mình với rau tươi và một phần cơm hoặc khoai tây.",
+      "id": 91
+    },
+    {
+      "title": "speak3",
+      "phonetically": "[‘spi:kə(r)]",
+      "translate": "người nói, người diễn thuyết, người đọc diễn văn; diễn giả, nhà hùng",
+      "id": 1
     }
   ],
   "dataTuCuaBan2": [
@@ -346,7 +361,7 @@
       "id": 342,
       "title": "Tôi có bài kiểm tra",
       "translate": "I have a quiz",
-      "note": false
+      "note": true
     },
     {
       "id": 201,
@@ -359,6 +374,18 @@
       "title": "check xyz",
       "translate": "kiểm tra xyz",
       "note": false
+    },
+    {
+      "id": 99,
+      "title": "check check",
+      "translate": "Kiểm tra lại đi.",
+      "note": true
+    },
+    {
+      "id": 91,
+      "title": "My favorite food is grilled meat. It's great and delicious. Whether it's beef, pork or chicken, I love it all. I like to merinate meat with a mixture of fish sauce, sugar, garlic and lemongrass before grilling.\n\nGrilled meat is not only delicious, but it's also a great source of protein. I love to pair my grilled meat with fresh vegetables and a side of rice or potatoes.",
+      "translate": "Món ăn yêu thích của tôi là thịt nướng. Thật tuyệt vời và ngon miệng. Cho dù đó là thịt bò, thịt lợn hay thịt gà, tôi yêu tất cả. Tôi thích trộn thịt với hỗn hợp nước mắm, đường, tỏi và sả trước khi nướng. Thịt nướng không chỉ ngon mà còn là một nguồn protein tuyệt vời. Tôi thích ghép thịt nướng của mình với rau tươi và một phần cơm hoặc khoai tây.",
+      "note": true
     }
   ]
 }

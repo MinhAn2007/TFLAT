@@ -77,6 +77,12 @@ export default function DichVanBanScreen() {
         }
     };
 
+    const speakAPI = (text) => {
+        const speechSynthesis = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(text);
+        speechSynthesis.speak(utterance);
+    };
+
 
     const handleSearch = (text) => {
         console.log("Searching for:", text);
@@ -171,10 +177,12 @@ export default function DichVanBanScreen() {
                         setBoolInput(false),
                             setSearchText("")
                     }} />
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Pressable
+                    onPress={() => speakAPI(searchText)}
+                     style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 13 }} />
                         <Ionicons name="volume-high" size={20} style={{ color: 'white', right: 12 }} />
-                    </View>
+                    </Pressable>
                 </View>
 
             </View>
@@ -238,11 +246,15 @@ export default function DichVanBanScreen() {
                         </View>
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 13 }} />
-                            <Ionicons name="volume-high" size={20} style={{ color: 'white', right: 12 }} />
+                            <Pressable
+                                onPress={() => speakAPI(item.title)}
+                                style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 13 }} />
+                                <Ionicons name="volume-high" size={20} style={{ color: 'white', right: 12 }} />
+                            </Pressable>
 
                             <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}
-                                onPress={async() => {
+                                onPress={async () => {
                                     await patchAPITuDaTra(item.id, true)
                                     await saveAPITuDaTra(item)
 
@@ -250,7 +262,7 @@ export default function DichVanBanScreen() {
                             />
 
                             <AntDesign name="star" size={30} style={{ ...item.note ? styles.buttonPress2 : styles.buttonPress }}
-                                onPress={async() => {
+                                onPress={async () => {
                                     await patchAPITuDaTra(item.id, false)
                                     await deleteAPITuDaTra(item.id)
                                 }}

@@ -87,8 +87,11 @@ export default function TuDaTraScreen() {
                 setData(json);
             });
     }
-
-
+    const speakAPI = (text) => {
+        const speechSynthesis = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(text);
+        speechSynthesis.speak(utterance);
+    };
 
     return (
         <View style={styles.container}>
@@ -128,8 +131,10 @@ export default function TuDaTraScreen() {
                             </View>
 
                             <View style={{ flexDirection: 'row', alignItems: 'center', top: 10 }}>
-                                <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
-                                <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
+                                <Pressable style={{ flexDirection: 'row', alignItems: 'center' }} onPress={() => speakAPI(item.title)}>
+                                    <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
+                                    <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
+                                </Pressable>
 
 
                                 <AntDesign name="staro" size={30} style={item.note ? styles.buttonPress : styles.button}

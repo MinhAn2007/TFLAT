@@ -76,6 +76,12 @@ export default function TuCuaBanScreen() {
         setSort(!sort);
     };
 
+    const speakAPI = (text) => {
+        const speechSynthesis = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(text);
+        speechSynthesis.speak(utterance);
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.head}>
@@ -145,8 +151,13 @@ export default function TuCuaBanScreen() {
                             </View>
 
                             <View style={{ flexDirection: 'row', alignItems: 'center', top: 10 }}>
-                                <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
-                                <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
+                                <Pressable
+                                    onPress={() => speakAPI(item.title)}
+                                    style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    <FontAwesome name="circle" size={35} style={{ color: '#3B8CEC', left: 10 }} />
+                                    <Ionicons name="volume-high" size={20} style={{ color: 'white', left: '-15px' }} />
+                                </Pressable>
+
                                 <Entypo name="dots-three-vertical" size={30} style={{ color: "#898181" }} />
                             </View>
                         </View>
